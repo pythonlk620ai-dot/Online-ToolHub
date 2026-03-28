@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Flip a Coin / Roll a Die - Virtual Dice and Coin Flip Tool</title>
+    <meta name="description" content="Free online flip a coin or roll virtual dice. Best virtual dice and coin flip tool for true random numbers. Perfect for decision making, games, and fun. Clean, ad-free, and completely free.">
+    <meta name="keywords" content="flip a coin, roll a die, virtual dice, coin flip, free coin flip, online dice, free dice, virtual coin, random dice, flip coin online, roll dice online, coin toss, dice roll, coin flip tool, dice roll tool">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Online Flip a Coin / Roll a Die - Best Virtual Dice and Coin Flip Tool">
+    <meta property="og:description" content="True random coin flip and dice roll for decision making, games, and fun. Clean, ad-free, and completely free.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free Online Flip a Coin / Roll a Die - Best Virtual Dice">
+    <meta name="twitter:description" content="True random coin flip and dice roll for decision making, games, and fun.">
+    <link rel="canonical" href="https://online-toolhub.com/flip-coin-roll-dice.html">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-selector select {
+            padding: 8px 30px 8px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        
+        .language-selector select:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .language-selector select:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-selector select option {
+            background: #667eea;
+            color: white;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        header a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+        
+        header a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+        
+        .mode-selector {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .mode-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            flex: 1;
+            max-width: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .mode-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mode-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .mode-card.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .mode-card.active::before {
+            transform: scaleX(0);
+        }
+        
+        .mode-card.active .mode-arrow {
+            transform: translateY(-10px);
+        }
+        
+        .mode-icon {
+            font-size: 4.5em;
+            margin-bottom: 20px;
+            display: block;
+            transition: all 0.3s;
+        }
+        
+        .mode-card:hover .mode-icon {
+            transform: scale(1.15);
+        }
+        
+        .mode-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+        
+        .mode-card.active .mode-title {
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .mode-arrow {
+            font-size: 2em;
+            transition: all 0.4s ease;
+        }
+        
+        .game-area {
+            background: white;
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .game-display {
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            perspective: 1000px;
+        }
+        
+        .coin {
+            width: 180px;
+            height: 180px;
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .coin-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transform-style: preserve-3d;
+        }
+        
+        .coin-inner.flipping {
+            animation: flipCoin 0.6s ease-in-out infinite;
+        }
+        
+        @keyframes flipCoin {
+            0% { transform: rotateY(0) scale(1); }
+            25% { transform: rotateY(90deg) scale(1.1); }
+            50% { transform: rotateY(180deg) scale(1); }
+            75% { transform: rotateY(270deg) scale(1.1); }
+            100% { transform: rotateY(360deg) scale(1); }
+        }
+        
+        .coin-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+            border-radius: 50%;
+            box-shadow: 
+                inset 0 0 30px rgba(0, 0, 0, 0.2),
+                0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .coin-front {
+            background: radial-gradient(circle at 30% 30%, #ffd700 0%, #ffaa00 50%, #cc8400 100%);
+            color: #8a6000;
+            border: 4px solid #ffcc44;
+        }
+        
+        .coin-front::after {
+            content: '🪙';
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.6;
+        }
+        
+        .coin-back {
+            background: radial-gradient(circle at 30% 30%, #a0c4ff 0%, #6b8cff 50%, #4a69bd 100%);
+            color: #2e5a97;
+            border: 4px solid #8da3e8;
+            transform: rotateY(180deg);
+        }
+        
+        .coin-back::after {
+            content: '1';
+            position: absolute;
+            font-size: 4em;
+            font-weight: bold;
+            opacity: 0.7;
+        }
+        
+        .die {
+            width: 140px;
+            height: 140px;
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .die-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transform-style: preserve-3d;
+        }
+        
+        .die-inner.rolling {
+            animation: rollDie 0.5s ease-in-out infinite;
+        }
+        
+        @keyframes rollDie {
+            0% { transform: rotateX(0) rotateY(0) scale(1); }
+            25% { transform: rotateX(45deg) rotateY(45deg) scale(1.1); }
+            50% { transform: rotateX(90deg) rotateY(90deg) scale(1); }
+            75% { transform: rotateX(135deg) rotateY(135deg) scale(1.1); }
+            100% { transform: rotateX(180deg) rotateY(180deg) scale(1); }
+        }
+        
+        .die-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+            color: #667eea;
+            box-shadow: 
+                inset 0 0 20px rgba(102, 126, 234, 0.2),
+                0 10px 30px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+        
+        .die-face:nth-child(1) { transform: rotateY(0deg) translateZ(70px); }
+        .die-face:nth-child(2) { transform: rotateY(90deg) translateZ(70px); }
+        .die-face:nth-child(3) { transform: rotateY(180deg) translateZ(70px); }
+        .die-face:nth-child(4) { transform: rotateY(-90deg) translateZ(70px); }
+        .die-face:nth-child(5) { transform: rotateX(90deg) translateZ(70px); }
+        .die-face:nth-child(6) { transform: rotateX(-90deg) translateZ(70px); }
+        
+        .controls {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 3px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(-2px);
+        }
+        
+        .history {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .history h3 {
+            margin-top: 0;
+            color: #667eea;
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .history h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        
+        .history-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            max-height: 250px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .history-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .history-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .history-list::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+        
+        .history-list::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
+        }
+        
+        .history-item {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 30px;
+            font-size: 1.4em;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .history-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        @keyframes popIn {
+            from { 
+                transform: scale(0) translateY(50px);
+                opacity: 0; 
+            }
+            to { 
+                transform: scale(1) translateY(0);
+                opacity: 1; 
+            }
+        }
+        
+        @keyframes spinCoin {
+            0% { transform: rotateY(0); }
+            100% { transform: rotateY(1800deg); }
+        }
+        
+        @keyframes spinDie {
+            0% { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(1800deg) rotateY(1800deg); }
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        
+        .back-link a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer-tools {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .footer-tool {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer-tool:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer-tool:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .mode-selector {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .mode-card {
+                max-width: 100%;
+                padding: 30px 40px;
+            }
+            
+            .game-display {
+                min-height: 150px;
+            }
+            
+            .coin {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .coin-face {
+                font-size: 4em;
+            }
+            
+            .coin-front::after {
+                font-size: 2.5em;
+            }
+            
+            .coin-back::after {
+                font-size: 3em;
+            }
+            
+            .die {
+                width: 110px;
+                height: 110px;
+            }
+            
+            .die-face {
+                font-size: 4em;
+            }
+            
+            .die-face:nth-child(1) { transform: rotateY(0deg) translateZ(55px); }
+            .die-face:nth-child(2) { transform: rotateY(90deg) translateZ(55px); }
+            .die-face:nth-child(3) { transform: rotateY(180deg) translateZ(55px); }
+            .die-face:nth-child(4) { transform: rotateY(-90deg) translateZ(55px); }
+            .die-face:nth-child(5) { transform: rotateX(90deg) translateZ(55px); }
+            .die-face:nth-child(6) { transform: rotateX(-90deg) translateZ(55px); }
+            
+            .btn {
+                padding: 15px 35px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎲 Flip a Coin / Roll a Die</h1>
+            <a href="index.html">← Back to Home</a>
+        </header>
+        
+        <div class="mode-selector">
+            <div class="mode-card active" id="coinCard" onclick="setMode('coin')">
+                <span class="mode-icon">🪙</span>
+                <div class="mode-title" id="coinTitle">Flip Coin</div>
+                <div class="mode-arrow">⬆</div>
+            </div>
+            <div class="mode-card" id="dieCard" onclick="setMode('die')">
+                <span class="mode-icon">🎲</span>
+                <div class="mode-title" id="dieTitle">Roll Die</div>
+                <div class="mode-arrow">⬇</div>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <div class="game-display" id="gameDisplay">
+                <div class="coin" id="coin">
+                    <div class="coin-inner" id="coinInner">
+                        <div class="coin-face coin-front">🪙</div>
+                        <div class="coin-face coin-back">1</div>
+                    </div>
+                </div>
+                <div class="die" id="die" style="display: none;">
+                    <div class="die-inner" id="dieInner">
+                        <div class="die-face">1</div>
+                        <div class="die-face">2</div>
+                        <div class="die-face">3</div>
+                        <div class="die-face">4</div>
+                        <div class="die-face">5</div>
+                        <div class="die-face">6</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button class="btn btn-primary" id="actionBtn" onclick="performAction()">🪙 Flip</button>
+                <button class="btn btn-secondary" onclick="resetGame()">Reset</button>
+            </div>
+            
+            <div class="history">
+                <h3 id="historyTitle">History</h3>
+                <div class="history-list" id="historyList"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="language-selector">
+        <select id="languageSelect" onchange="changeLanguage(this.value)">
+            <option value="en" selected>English</option>
+            <option value="zh-CN">简体中文</option>
+            <option value="zh-TW">中文繁體</option>
+        </select>
+    </div>
+    
+    <div class="footer-tools">
+        <button class="footer-tool" onclick="toggleFullScreen()" title="Toggle Full Screen">⛶</button>
+    </div>
+    
+    <script>
+        let currentMode = 'coin';
+        let isAnimating = false;
+        let history = [];
+        let currentLang = 'en';
+        
+        const translations = {
+            en: {
+                title: 'Flip a Coin / Roll a Die',
+                back: '← Back to Home',
+                coinTitle: 'Flip Coin',
+                dieTitle: 'Roll Die',
+                flip: '🪙 Flip',
+                roll: '🎲 Roll',
+                reset: 'Reset',
+                history: 'History',
+                coinFront: 'Heads',
+                coinBack: 'Tails',
+                coinFace: '🪙',
+                dieFace: '🎲'
+            },
+            'zh-CN': {
+                title: '抛硬币 / 掷骰子',
+                back: '← 返回首页',
+                coinTitle: '抛硬币',
+                dieTitle: '掷骰子',
+                flip: '🪙 抛',
+                roll: '🎲 掷',
+                reset: '重置',
+                history: '历史记录',
+                coinFront: '正面',
+                coinBack: '反面',
+                coinFace: '🪙',
+                dieFace: '🎲'
+            },
+            'zh-TW': {
+                title: '拋硬幣 / 掷骰子',
+                back: '← 返回首頁',
+                coinTitle: '拋硬幣',
+                dieTitle: '掷骰子',
+                flip: '🪙 拋',
+                roll: '🎲 掷',
+                reset: '重置',
+                history: '歷史記錄',
+                coinFront: '正面',
+                coinBack: '反面',
+                coinFace: '🪙',
+                dieFace: '🎲'
+            }
+        };
+        
+        function setMode(mode) {
+            if (isAnimating) return;
+            
+            currentMode = mode;
+            
+            const coinCard = document.getElementById('coinCard');
+            const dieCard = document.getElementById('dieCard');
+            const coinTitle = document.getElementById('coinTitle');
+            const dieTitle = document.getElementById('dieTitle');
+            const coin = document.getElementById('coin');
+            const die = document.getElementById('die');
+            const actionBtn = document.getElementById('actionBtn');
+            const t = translations[currentLang];
+            
+            if (mode === 'coin') {
+                coinCard.classList.add('active');
+                dieCard.classList.remove('active');
+                coinTitle.textContent = t.coinTitle;
+                dieTitle.textContent = t.dieTitle;
+                coin.style.display = 'block';
+                die.style.display = 'none';
+                actionBtn.textContent = t.flip;
+            } else {
+                coinCard.classList.remove('active');
+                dieCard.classList.add('active');
+                coinTitle.textContent = t.coinTitle;
+                dieTitle.textContent = t.dieTitle;
+                coin.style.display = 'none';
+                die.style.display = 'block';
+                actionBtn.textContent = t.roll;
+            }
+            
+            updateLanguage();
+        }
+        
+        function performAction() {
+            if (isAnimating) return;
+            
+            isAnimating = true;
+            const t = translations[currentLang];
+            
+            if (currentMode === 'coin') {
+                const coinInner = document.getElementById('coinInner');
+                coinInner.classList.add('flipping');
+                
+                setTimeout(() => {
+                    const result = Math.random() < 0.5 ? 'front' : 'back';
+                    const rotateY = result === 'front' ? 0 : 180;
+                    coinInner.style.transform = `rotateY(${rotateY}deg)`;
+                    coinInner.classList.remove('flipping');
+                    
+                    const resultText = result === 'front' ? t.coinFront : t.coinBack;
+                    const resultIcon = t.coinFace;
+                    addToHistory(resultIcon + ' ' + resultText);
+                    isAnimating = false;
+                }, 600);
+                
+            } else {
+                const dieInner = document.getElementById('dieInner');
+                dieInner.classList.add('rolling');
+                
+                setTimeout(() => {
+                    const result = Math.floor(Math.random() * 6) + 1;
+                    
+                    const rotations = {
+                        1: { x: 0, y: 0 },
+                        2: { x: 0, y: -90 },
+                        3: { x: 0, y: 180 },
+                        4: { x: 0, y: 90 },
+                        5: { x: -90, y: 0 },
+                        6: { x: 90, y: 0 }
+                    };
+                    
+                    const rotation = rotations[result];
+                    dieInner.style.transform = `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
+                    dieInner.classList.remove('rolling');
+                    
+                    addToHistory(t.dieFace + ' ' + result);
+                    isAnimating = false;
+                }, 500);
+            }
+        }
+        
+        function addToHistory(item) {
+            history.unshift(item);
+            if (history.length > 20) {
+                history = history.slice(0, 20);
+            }
+            
+            const historyList = document.getElementById('historyList');
+            const historyItem = document.createElement('div');
+            historyItem.className = 'history-item';
+            historyItem.textContent = item;
+            historyList.prepend(historyItem);
+            
+            if (historyList.children.length > 20) {
+                historyList.lastElementChild.remove();
+            }
+        }
+        
+        function resetGame() {
+            if (isAnimating) return;
+            
+            const coinInner = document.getElementById('coinInner');
+            const dieInner = document.getElementById('dieInner');
+            
+            coinInner.style.transform = 'rotateY(0deg)';
+            coinInner.classList.remove('flipping');
+            dieInner.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            dieInner.classList.remove('rolling');
+            
+            document.getElementById('historyList').innerHTML = '';
+            history = [];
+        }
+        
+        function updateLanguage() {
+            const t = translations[currentLang];
+            document.title = t.title;
+            document.querySelector('h1').textContent = t.title;
+            document.querySelector('a').textContent = t.back;
+            document.getElementById('historyTitle').textContent = t.history;
+            
+            if (currentMode === 'coin') {
+                document.getElementById('coinTitle').textContent = t.coinTitle;
+                document.getElementById('dieTitle').textContent = t.dieTitle;
+                document.getElementById('actionBtn').textContent = t.flip;
+            } else {
+                document.getElementById('coinTitle').textContent = t.coinTitle;
+                document.getElementById('dieTitle').textContent = t.dieTitle;
+                document.getElementById('actionBtn').textContent = t.roll;
+            }
+        }
+        
+        function changeLanguage(lang) {
+            currentLang = lang;
+            updateLanguage();
+            localStorage.setItem('language', lang);
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'en';
+        currentLang = savedLang;
+        document.getElementById('languageSelect').value = savedLang;
+        updateLanguage();
+        
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>

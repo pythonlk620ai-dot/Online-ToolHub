@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Stopwatch Timer | Best Stopwatch for Study, Examination, Presentation</title>
+    <meta name="description" content="Free online stopwatch timer for study, examination, and presentation. Best stopwatch timer clock for timing tasks, tests, and activities. Accurate, easy to use, and completely free.">
+    <meta name="keywords" content="stopwatch timer, online stopwatch, free stopwatch, best stopwatch, timer for study, stopwatch for examination, presentation timer, online timer clock, free timer, stopwatch for presentation, study timer, examination timer">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Online Stopwatch Timer - Best Stopwatch for Study, Examination, Presentation">
+    <meta property="og:description" content="Free online stopwatch timer for study, examination, and presentation. Accurate, easy to use, and completely free.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free Online Stopwatch Timer - Best Stopwatch">
+    <meta name="twitter:description" content="Free online stopwatch timer for study, examination, presentation. Accurate and easy to use.">
+    <link rel="canonical" href="https://online-toolhub.com/online-stopwatch.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .timer-container {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #2d3436;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        .mode-selector {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .mode-card {
+            padding: 20px 40px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 4px solid transparent;
+        }
+        .mode-card:hover {
+            transform: scale(1.05);
+        }
+        .mode-card.stopwatch {
+            background: #f0fff4;
+        }
+        .mode-card.countdown {
+            background: #fff5f5;
+        }
+        .mode-card.active.stopwatch {
+            border-color: #00b894;
+            background: #d4edda;
+        }
+        .mode-card.active.countdown {
+            border-color: #d63031;
+            background: #f8d7da;
+        }
+        .mode-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2d3436;
+        }
+        .mode-arrow {
+            font-size: 4em;
+            line-height: 1;
+        }
+        .mode-card.stopwatch .mode-arrow {
+            color: #00b894;
+        }
+        .mode-card.countdown .mode-arrow {
+            color: #d63031;
+        }
+        .display-container {
+            background: #e8eaff;
+            border: 4px solid #2d3436;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .time-display {
+            font-size: 5em;
+            font-weight: 700;
+            color: #2d3436;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 2px;
+        }
+        .milliseconds {
+            font-size: 1.5em;
+            position: absolute;
+            bottom: 15px;
+            right: 25px;
+            color: #2d3436;
+        }
+        .input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .time-input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .time-input label {
+            color: #636e72;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .time-input input {
+            width: 70px;
+            height: 60px;
+            font-size: 2em;
+            text-align: center;
+            border: 3px solid #2d3436;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s;
+            font-weight: 600;
+            color: #2d3436;
+        }
+        .time-input input:focus {
+            border-color: #00b894;
+        }
+        .time-input input::-webkit-inner-spin-button,
+        .time-input input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 15px 40px;
+            font-size: 1.5em;
+            border: 4px solid #2d3436;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 700;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        button:hover {
+            filter: brightness(1.1);
+        }
+        .btn-start {
+            background: #00ff00;
+            color: #2d3436;
+        }
+        .btn-stop {
+            background: #ff6b6b;
+            color: #2d3436;
+        }
+        .btn-clear {
+            background: #dfe6e9;
+            color: #2d3436;
+        }
+        .btn-set {
+            background: #00ff00;
+            color: #2d3436;
+        }
+        .btn-start:disabled,
+        .btn-stop:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .numpad {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .num-btn {
+            padding: 15px;
+            font-size: 1.5em;
+            border: 3px solid #2d3436;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 700;
+            background: #00ff00;
+            color: #2d3436;
+        }
+        .num-btn:active {
+            transform: scale(0.95);
+        }
+        .num-btn.clear {
+            background: #dfe6e9;
+        }
+        .back-link {
+            margin-top: 30px;
+        }
+        .back-link a {
+            color: #636e72;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            background: #dfe6e9;
+            border: 3px solid #2d3436;
+            border-radius: 25px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .back-link a:hover {
+            background: #b2bec3;
+            transform: translateY(-2px);
+        }
+        .hidden {
+            display: none;
+        }
+        .footer-tools {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .footer-tool {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .footer-tool:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-tool:active {
+            transform: translateY(0);
+        }
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .language-selector select {
+            padding: 8px 30px 8px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        .language-selector select:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+        .language-selector select:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .language-selector select option {
+            background: #667eea;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .footer-tools {
+                bottom: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            .footer-tool {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-container">
+       <!-- <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en" selected>English</option>
+                <option value="zh-CN">简体中文</option>
+                <option value="zh-TW">中文繁體</option>  
+            </select>
+        </div>!-->
+        <h1>Free Online Stopwatch</h1>
+        <div class="mode-selector">
+            <div class="mode-card stopwatch active" id="stopwatchCard" onclick="setMode('stopwatch')">
+                <div class="mode-title">Stopwatch</div>
+                <div class="mode-arrow">⬆</div>
+            </div>
+            <div class="mode-card countdown" id="countdownCard" onclick="setMode('countdown')">
+                <div class="mode-title">Countdown</div>
+                <div class="mode-arrow">⬇</div>
+            </div>
+        </div>
+        <div class="display-container">
+            <div class="time-display" id="display">00:00:00</div>
+            <div class="milliseconds" id="milliseconds">000</div>
+        </div>
+        <div class="buttons">
+            <button class="btn-start" id="startBtn" onclick="startTimer()">Start</button>
+            <button class="btn-stop" id="stopBtn" onclick="stopTimer()" disabled>Stop</button>
+            <button class="btn-clear" onclick="resetTimer()">Clear</button>
+        </div>
+        <div class="numpad hidden" id="numpad">
+            <button class="num-btn" onclick="appendNumber(5)">5</button>
+            <button class="num-btn" onclick="appendNumber(6)">6</button>
+            <button class="num-btn" onclick="appendNumber(7)">7</button>
+            <button class="num-btn" onclick="appendNumber(8)">8</button>
+            <button class="num-btn" onclick="appendNumber(9)">9</button>
+            <button class="num-btn" onclick="setCountdownTime()">Set</button>
+            <button class="num-btn" onclick="appendNumber(0)">0</button>
+            <button class="num-btn" onclick="appendNumber(1)">1</button>
+            <button class="num-btn" onclick="appendNumber(2)">2</button>
+            <button class="num-btn" onclick="appendNumber(3)">3</button>
+            <button class="num-btn" onclick="appendNumber(4)">4</button>
+            <button class="num-btn clear" onclick="resetTimer()">Clear</button>
+        </div>
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+    </div>
+    <div class="footer-tools">
+        <button class="footer-tool" onclick="toggleFullScreen()" title="Toggle Full Screen">⛶</button>
+    </div>
+
+    <script>
+        let totalSeconds = 0;
+        let currentSeconds = 0;
+        let milliseconds = 0;
+        let timerInterval = null;
+        let isRunning = false;
+        let mode = 'stopwatch';
+        let countdownInput = '';
+
+        const displayElement = document.getElementById('display');
+        const millisecondsElement = document.getElementById('milliseconds');
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const numpad = document.getElementById('numpad');
+        const stopwatchCard = document.getElementById('stopwatchCard');
+        const countdownCard = document.getElementById('countdownCard');
+
+        function formatTime(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secondsLeft = seconds % 60;
+            
+            return `${pad(hours)}:${pad(minutes)}:${pad(secondsLeft)}`;
+        }
+
+        function pad(num) {
+            return num.toString().padStart(2, '0');
+        }
+
+        function updateDisplay() {
+            displayElement.textContent = formatTime(currentSeconds);
+            millisecondsElement.textContent = pad(milliseconds);
+        }
+
+        function setMode(selectedMode) {
+            mode = selectedMode;
+            
+            if (mode === 'stopwatch') {
+                stopwatchCard.classList.add('active');
+                countdownCard.classList.remove('active');
+                numpad.classList.add('hidden');
+                startBtn.textContent = t.start;
+                startBtn.className = 'btn-start';
+            } else {
+                stopwatchCard.classList.remove('active');
+                countdownCard.classList.add('active');
+                numpad.classList.remove('hidden');
+                startBtn.textContent = t.start;
+                startBtn.className = 'btn-start';
+            }
+            
+            resetTimer();
+        }
+
+        function appendNumber(num) {
+            if (countdownInput.length < 6) {
+                countdownInput += num;
+                updateCountdownDisplay();
+            }
+        }
+
+        function updateCountdownDisplay() {
+            const padded = countdownInput.padStart(6, '0');
+            const hours = padded.substring(0, 2);
+            const minutes = padded.substring(2, 4);
+            const seconds = padded.substring(4, 6);
+            displayElement.textContent = `${hours}:${minutes}:${seconds}`;
+            millisecondsElement.textContent = '000';
+        }
+
+        function setCountdownTime() {
+            if (countdownInput) {
+                const padded = countdownInput.padStart(6, '0');
+                const hours = parseInt(padded.substring(0, 2)) || 0;
+                const minutes = parseInt(padded.substring(2, 4)) || 0;
+                const seconds = parseInt(padded.substring(4, 6)) || 0;
+                
+                totalSeconds = hours * 3600 + minutes * 60 + seconds;
+                currentSeconds = totalSeconds;
+                
+                if (currentSeconds > 0) {
+                    updateDisplay();
+                    countdownInput = '';
+                }
+            }
+        }
+
+        function startTimer() {
+            if (!isRunning) {
+                if (mode === 'countdown' && countdownInput) {
+                    setCountdownTime();
+                }
+                
+                isRunning = true;
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+
+                let startTime = Date.now();
+                let lastMilliseconds = milliseconds;
+
+                timerInterval = setInterval(() => {
+                    const elapsed = Date.now() - startTime;
+                    
+                    if (mode === 'stopwatch') {
+                        milliseconds = Math.floor((elapsed % 1000) / 10);
+                        const elapsedSeconds = Math.floor(elapsed / 1000);
+                        currentSeconds = elapsedSeconds;
+                        updateDisplay();
+                    } else {
+                        const newMilliseconds = Math.floor((elapsed % 1000) / 10);
+                        if (newMilliseconds < lastMilliseconds && currentSeconds > 0) {
+                            currentSeconds--;
+                            updateDisplay();
+                            
+                            if (currentSeconds <= 0) {
+                                stopTimer();
+                                playAlarm();
+                            }
+                        }
+                        lastMilliseconds = newMilliseconds;
+                        milliseconds = newMilliseconds;
+                        updateDisplay();
+                    }
+                }, 10);
+            }
+        }
+
+        function stopTimer() {
+            if (isRunning) {
+                clearInterval(timerInterval);
+                isRunning = false;
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            }
+        }
+
+        function resetTimer() {
+            stopTimer();
+            currentSeconds = 0;
+            totalSeconds = 0;
+            milliseconds = 0;
+            countdownInput = '';
+            updateDisplay();
+        }
+
+        function playAlarm() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(880, audioContext.currentTime);
+            
+            gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 1);
+
+            setTimeout(() => {
+                oscillator.frequency.setValueAtTime(660, audioContext.currentTime);
+                gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+                oscillator.start();
+                oscillator.stop(audioContext.currentTime + 1);
+            }, 1000);
+        }
+
+        hoursInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);
+        });
+
+        minutesInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);
+        });
+
+        secondsInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);
+        });
+
+        updateDisplay();
+        
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        function bookmarkPage() {
+            const title = document.title;
+            const url = window.location.href;
+            
+            if (navigator.userAgent.indexOf('iPhone') !== -1 || navigator.userAgent.indexOf('iPad') !== -1) {
+                alert('Press the Share button and select "Add to Home Screen"');
+            } else if (navigator.userAgent.indexOf('Android') !== -1) {
+                alert('Press the menu button and select "Add to Home Screen"');
+            } else if (window.sidebar && window.sidebar.addPanel) {
+                window.sidebar.addPanel(title, url, '');
+            } else if (window.external && 'AddFavorite' in window.external) {
+                window.external.AddFavorite(url, title);
+            } else {
+                alert('Press Ctrl+D to bookmark this page');
+            }
+        }
+        
+        const translations = {
+            en: {
+                title: 'Timer',
+                back: '← Back to Home',
+                stopwatch: 'Stopwatch',
+                countdown: 'Countdown',
+                start: 'Start',
+                stop: 'Stop',
+                clear: 'Clear',
+                set: 'Set',
+                up: '⬆',
+                down: '⬇',
+                displayZero: '00:00:00',
+                millisecondsZero: '000'
+            },
+            'zh-CN': {
+                title: '计时器',
+                back: '← 返回首页',
+                stopwatch: '秒表',
+                countdown: '倒计时',
+                start: '开始',
+                stop: '停止',
+                clear: '清除',
+                set: '设定',
+                up: '⬆',
+                down: '⬇',
+                displayZero: '00:00:00',
+                millisecondsZero: '000'
+            },
+            'zh-TW': {
+                title: '計時器',
+                back: '← 返回首頁',
+                stopwatch: '秒表',
+                countdown: '倒計時',
+                start: '開始',
+                stop: '停止',
+                clear: '清除',
+                set: '設定',
+                up: '⬆',
+                down: '⬇',
+                displayZero: '00:00:00',
+                millisecondsZero: '000'
+            }
+        };
+        
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.title = t.title;
+            document.querySelector('h1').textContent = t.title;
+            
+            const backLink = document.querySelector('a[href="index.html"]');
+            if (backLink) {
+                backLink.textContent = t.back;
+            }
+            
+            const modeCards = document.querySelectorAll('.mode-title');
+            if (modeCards.length > 0) modeCards[0].textContent = t.stopwatch;
+            if (modeCards.length > 1) modeCards[1].textContent = t.countdown;
+            
+            const arrows = document.querySelectorAll('.mode-arrow');
+            if (arrows.length > 0) arrows[0].textContent = t.up;
+            if (arrows.length > 1) arrows[1].textContent = t.down;
+            
+            const buttons = document.querySelectorAll('.buttons button');
+            if (buttons.length > 0) buttons[0].textContent = t.start;
+            if (buttons.length > 1) buttons[1].textContent = t.stop;
+            if (buttons.length > 2) buttons[2].textContent = t.clear;
+            
+            const numpadBtns = document.querySelectorAll('.numpad .num-btn');
+            if (numpadBtns.length > 5) numpadBtns[5].textContent = t.set;
+            if (numpadBtns.length > 11) numpadBtns[11].textContent = t.clear;
+            
+            if (startBtn) {
+                startBtn.textContent = t.start;
+            }
+            
+            if (displayElement) {
+                displayElement.textContent = t.displayZero;
+            }
+            if (millisecondsElement) {
+                millisecondsElement.textContent = t.millisecondsZero;
+            }
+            
+            localStorage.setItem('language', lang);
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'en';
+        document.getElementById('languageSelect').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
+</body>
+</html>

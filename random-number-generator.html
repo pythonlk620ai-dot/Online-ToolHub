@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Random Number Generator | Best RNG for Games, Gambling, Fun</title>
+    <meta name="description" content="Free online random number generator for games, gambling, and fun. Best random number generator tool with custom ranges, multiple numbers, and secure generation. Fast, easy to use, and completely free.">
+    <meta name="keywords" content="random number generator, RNG, free RNG, best RNG, online random number generator, random number generator for games, gambling RNG, random number generator for fun, free random number generator, secure RNG, custom range RNG">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Online Random Number Generator - Best RNG for Games, Gambling, Fun">
+    <meta property="og:description" content="Free online random number generator for games, gambling, and fun. Custom ranges, multiple numbers, secure generation.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free Online Random Number Generator - Best RNG">
+    <meta name="twitter:description" content="Free online random number generator for games, gambling, fun. Custom ranges, secure generation.">
+    <link rel="canonical" href="https://online-toolhub.com/random-number-generator.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        header a {
+            color: #764ba2;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
+        .settings-panel {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            color: #2d3436;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .range-inputs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .range-inputs span {
+            color: #636e72;
+            font-weight: 600;
+            font-size: 1.5em;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 3px solid #dfe6e9;
+            border-radius: 12px;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+        .btn-generate {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        .btn-generate:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+        .btn-generate:active {
+            transform: translateY(0);
+        }
+        .results-container {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 30px;
+            min-height: 200px;
+        }
+        .draws-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .draw-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            animation: drawIn 0.5s ease-out;
+        }
+        @keyframes drawIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .draw-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            text-align: center;
+        }
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 15px;
+        }
+        .cartoon-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5253 100%);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 8px 20px rgba(238, 82, 83, 0.4), inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        @keyframes bounce {
+            0% {
+                transform: scale(0) translateY(100px);
+            }
+            50% {
+                transform: scale(1.1) translateY(-20px);
+            }
+            70% {
+                transform: scale(0.9) translateY(10px);
+            }
+            100% {
+                transform: scale(1) translateY(0);
+            }
+        }
+        .cartoon-number:nth-child(1) { animation-delay: 0.1s; background: linear-gradient(135deg, #ff6b6b 0%, #ee5253 100%); }
+        .cartoon-number:nth-child(2) { animation-delay: 0.2s; background: linear-gradient(135deg, #feca57 0%, #ff9f43 100%); }
+        .cartoon-number:nth-child(3) { animation-delay: 0.3s; background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%); }
+        .cartoon-number:nth-child(4) { animation-delay: 0.4s; background: linear-gradient(135deg, #54a0ff 0%, #2e86de 100%); }
+        .cartoon-number:nth-child(5) { animation-delay: 0.5s; background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%); }
+        .cartoon-number:nth-child(6) { animation-delay: 0.6s; background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%); }
+        .cartoon-number:nth-child(7) { animation-delay: 0.7s; background: linear-gradient(135deg, #ff9f43 0%, #ee5253 100%); }
+        .cartoon-number:nth-child(8) { animation-delay: 0.8s; background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%); }
+        .cartoon-number:nth-child(9) { animation-delay: 0.9s; background: linear-gradient(135deg, #54a0ff 0%, #2e86de 100%); }
+        .cartoon-number:nth-child(10) { animation-delay: 1.0s; background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%); }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #636e72;
+        }
+        .empty-state p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .empty-state .emoji {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        .draw-count {
+            text-align: center;
+            color: #2d3436;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .cartoon-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8em;
+            }
+            .settings-panel {
+                padding: 20px;
+            }
+        }
+        .footer-tools {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .footer-tool {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .footer-tool:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-tool:active {
+            transform: translateY(0);
+        }
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .language-selector select {
+            padding: 8px 30px 8px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        .language-selector select:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+        .language-selector select:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .language-selector select option {
+            background: #667eea;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .footer-tools {
+                bottom: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            .footer-tool {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en" selected>English</option>
+                <option value="zh-CN">简体中文</option>
+                <option value="zh-TW">中文繁體</option>
+            </select>
+        </div>
+        <header>
+            <h1>🎲 Random Number Generator</h1>
+            <a href="index.html">← Back to Home</a>
+        </header>
+        
+        <div class="settings-panel">
+            <div class="input-group">
+                <label>Number Range</label>
+                <div class="range-inputs">
+                    <input type="number" id="minRange" min="1" value="1" placeholder="Min">
+                    <span>-</span>
+                    <input type="number" id="maxRange" max="1000" value="100" placeholder="Max">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Numbers to Pick</label>
+                <input type="number" id="numbersToPick" min="1" max="100" value="6" placeholder="How many numbers">
+            </div>
+            <div class="input-group">
+                <label>Draw Times</label>
+                <input type="number" id="drawTimes" min="1" max="50" value="5" placeholder="How many draws">
+            </div>
+            <button class="btn-generate" onclick="generateNumbers()">🎲 Generate Numbers</button>
+        </div>
+        
+        <div class="results-container" id="resultsContainer">
+            <div class="draws-container" id="drawsContainer"></div>
+        </div>
+    </div>
+    <div class="footer-tools">
+        <button class="footer-tool" onclick="toggleFullScreen()" title="Toggle Full Screen">⛶</button>
+    </div>
+    
+    <script>
+        function generateNumbers() {
+            const minRange = parseInt(document.getElementById('minRange').value) || 1;
+            const maxRange = parseInt(document.getElementById('maxRange').value) || 100;
+            const numbersToPick = parseInt(document.getElementById('numbersToPick').value) || 6;
+            const drawTimes = parseInt(document.getElementById('drawTimes').value) || 5;
+            
+            if (minRange >= maxRange) {
+                alert('Minimum range must be less than maximum range');
+                return;
+            }
+            
+            if (numbersToPick > (maxRange - minRange + 1)) {
+                alert(`Cannot pick ${numbersToPick} unique numbers from range ${minRange}-${maxRange}`);
+                return;
+            }
+            
+            const drawsContainer = document.getElementById('drawsContainer');
+            drawsContainer.innerHTML = '';
+            
+            for (let draw = 1; draw <= drawTimes; draw++) {
+                const numbers = [];
+                const usedNumbers = new Set();
+                
+                while (numbers.length < numbersToPick) {
+                    const randomNum = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+                    if (!usedNumbers.has(randomNum)) {
+                        numbers.push(randomNum);
+                        usedNumbers.add(randomNum);
+                    }
+                }
+                
+                numbers.sort((a, b) => a - b);
+                
+                const drawCard = document.createElement('div');
+                drawCard.className = 'draw-card';
+                
+                let numbersHTML = '';
+                numbers.forEach((num, index) => {
+                    numbersHTML += `<div class="cartoon-number" style="animation-delay: ${0.1 + index * 0.1}s">${num}</div>`;
+                });
+                
+                drawCard.innerHTML = `
+                    <h3>Draw #${draw}</h3>
+                    <div class="numbers-grid">
+                        ${numbersHTML}
+                    </div>
+                `;
+                
+                drawsContainer.appendChild(drawCard);
+            }
+        }
+        
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        function bookmarkPage() {
+            const title = document.title;
+            const url = window.location.href;
+            
+            if (navigator.userAgent.indexOf('iPhone') !== -1 || navigator.userAgent.indexOf('iPad') !== -1) {
+                alert('Press the Share button and select "Add to Home Screen"');
+            } else if (navigator.userAgent.indexOf('Android') !== -1) {
+                alert('Press the menu button and select "Add to Home Screen"');
+            } else if (window.sidebar && window.sidebar.addPanel) {
+                window.sidebar.addPanel(title, url, '');
+            } else if (window.external && 'AddFavorite' in window.external) {
+                window.external.AddFavorite(url, title);
+            } else {
+                alert('Press Ctrl+D to bookmark this page');
+            }
+        }
+        
+        const translations = {
+            en: {
+                title: 'Random Number Generator',
+                back: '← Back to Home',
+                range: 'Number Range',
+                min: 'Min',
+                max: 'Max',
+                numbersPick: 'Numbers to Pick',
+                numbersPickPlaceholder: 'How many numbers',
+                drawTimes: 'Draw Times',
+                drawTimesPlaceholder: 'How many draws',
+                generate: '🎲 Generate Numbers'
+            },
+            'zh-CN': {
+                title: '随机数生成器',
+                back: '← 返回首页',
+                range: '数字范围',
+                min: '最小值',
+                max: '最大值',
+                numbersPick: '选择数量',
+                numbersPickPlaceholder: '选择多少个数字',
+                drawTimes: '抽取次数',
+                drawTimesPlaceholder: '抽取多少次',
+                generate: '🎲 生成数字'
+            },
+            'zh-TW': {
+                title: '隨機數生成器',
+                back: '← 返回首頁',
+                range: '數字範圍',
+                min: '最小值',
+                max: '最大值',
+                numbersPick: '選擇數量',
+                numbersPickPlaceholder: '選擇多少個數字',
+                drawTimes: '抽取次數',
+                drawTimesPlaceholder: '抽取多少次',
+                generate: '🎲 生成數字'
+            }
+        };
+        
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.title = t.title;
+            document.querySelector('h1').textContent = t.title;
+            document.querySelector('a').textContent = t.back;
+            
+            const labels = document.querySelectorAll('.settings-panel label');
+            labels[0].textContent = t.range;
+            labels[1].textContent = t.numbersPick;
+            labels[2].textContent = t.drawTimes;
+            
+            const inputs = document.querySelectorAll('input');
+            inputs[0].placeholder = t.min;
+            inputs[1].placeholder = t.max;
+            inputs[2].placeholder = t.numbersPickPlaceholder;
+            inputs[3].placeholder = t.drawTimesPlaceholder;
+            
+            const buttons = document.querySelectorAll('.settings-panel button');
+            buttons[0].textContent = t.generate;
+            
+            localStorage.setItem('language', lang);
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'en';
+        document.getElementById('languageSelect').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
+</body>
+</html>

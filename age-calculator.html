@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Age Calculator | Best Calculator for Age in Years, Months, Weeks, Days</title>
+    <meta name="description" content="Free online age calculator. Best calculator to compute age in years, months, weeks, days from date of birth. Character age generator for fun and games. Fast, accurate, and completely free.">
+    <meta name="keywords" content="age calculator, online age calculator, free age calculator, best age calculator, calculate age, age in years, age in months, age in weeks, age in days, character age generator, fun age calculator, game age calculator">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Online Age Calculator - Best Calculator for Age in Years, Months, Weeks, Days">
+    <meta property="og:description" content="Calculate exact age from date of birth. Character age generator for fun and games. Fast, accurate, and completely free.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free Online Age Calculator - Best Age Calculator">
+    <meta name="twitter:description" content="Calculate exact age from date of birth. Character age generator for fun and games.">
+    <link rel="canonical" href="https://online-toolhub.com/age-calculator.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        header a {
+            color: #764ba2;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 15px;
+            display: inline-block;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
+        .calculator {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 20px;
+            padding: 30px;
+        }
+        .input-group {
+            margin-bottom: 25px;
+        }
+        .input-group label {
+            display: block;
+            color: #2d3436;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        input[type="date"] {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid #dfe6e9;
+            border-radius: 12px;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            background: white;
+        }
+        input[type="date"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+        .btn-calculate {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        .btn-calculate:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        }
+        .btn-calculate:active {
+            transform: translateY(0);
+        }
+        .results {
+            margin-top: 30px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        .results h3 {
+            color: #2d3436;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.5em;
+        }
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .result-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        .result-card .label {
+            color: #636e72;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .result-card .value {
+            color: #2d3436;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        .result-card .unit {
+            color: #667eea;
+            font-size: 1em;
+        }
+        .extra-info {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px solid #dfe6e9;
+        }
+        .extra-info h4 {
+            color: #2d3436;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .extra-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .extra-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .extra-item .label {
+            color: #636e72;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        .extra-item .value {
+            color: #2d3436;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        .error-message {
+            margin-top: 15px;
+            padding: 15px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+            .extra-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .footer-tools {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .footer-tool {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .footer-tool:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-tool:active {
+            transform: translateY(0);
+        }
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .language-selector select {
+            padding: 8px 30px 8px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        .language-selector select:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+        .language-selector select:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .language-selector select option {
+            background: #667eea;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .footer-tools {
+                bottom: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            .footer-tool {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en" selected>English</option>
+                <option value="zh-CN">简体中文</option>
+                <option value="zh-TW">中文繁體</option>
+            </select>
+        </div>
+        <header>
+            <h1>🎂 Age Calculator</h1>
+            <a href="index.html">← Back to Home</a>
+        </header>
+        
+        <div class="calculator">
+            <div class="input-group">
+                <label for="birthdate">Birth Date</label>
+                <input type="date" id="birthdate">
+            </div>
+            
+            <button class="btn-calculate" onclick="calculateAge()">Calculate Age</button>
+            <div class="error-message" id="errorMessage"></div>
+        </div>
+        
+        <div class="results" id="results" style="display: none;">
+            <h3>📊 Your Age</h3>
+            
+            <div class="result-grid">
+                <div class="result-card">
+                    <div class="label">Years</div>
+                    <div class="value" id="years">0</div>
+                    <div class="unit">years</div>
+                </div>
+                <div class="result-card">
+                    <div class="label">Months</div>
+                    <div class="value" id="months">0</div>
+                    <div class="unit">months</div>
+                </div>
+                <div class="result-card">
+                    <div class="label">Days</div>
+                    <div class="value" id="days">0</div>
+                    <div class="unit">days</div>
+                </div>
+            </div>
+            
+            <div class="extra-info">
+                <h4>📅 Additional Information</h4>
+                <div class="extra-grid">
+                    <div class="extra-item">
+                        <div class="label">Next Birthday</div>
+                        <div class="value" id="nextBirthday">-</div>
+                    </div>
+                    <div class="extra-item">
+                        <div class="label">Total Days Lived</div>
+                        <div class="value" id="totalDays">0</div>
+                    </div>
+                    <div class="extra-item">
+                        <div class="label">Weeks Lived</div>
+                        <div class="value" id="totalWeeks">0</div>
+                    </div>
+                    <div class="extra-item">
+                        <div class="label">Birth Day</div>
+                        <div class="value" id="birthDay">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-tools">
+        <button class="footer-tool" onclick="toggleFullScreen()" title="Toggle Full Screen">⛶</button>
+ 
+    </div>
+    
+    <script>
+        const birthdateInput = document.getElementById('birthdate');
+        const results = document.getElementById('results');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        function calculateAge() {
+            const birthdateValue = birthdateInput.value;
+            
+            if (!birthdateValue) {
+                showError('Please enter your birth date');
+                return;
+            }
+            
+            const birthdate = new Date(birthdateValue);
+            const today = new Date();
+            
+            if (birthdate > today) {
+                showError('Birth date cannot be in the future');
+                return;
+            }
+            
+            if (birthdate.getFullYear() < 1900) {
+                showError('Please enter a valid birth date');
+                return;
+            }
+            
+            hideError();
+            
+            let years = today.getFullYear() - birthdate.getFullYear();
+            let months = today.getMonth() - birthdate.getMonth();
+            let days = today.getDate() - birthdate.getDate();
+            
+            if (days < 0) {
+                months--;
+                const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                days += lastMonth.getDate();
+            }
+            
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+            
+            calculateAdditionalInfo(birthdate, today, years);
+            
+            results.style.display = 'block';
+        }
+        
+        function calculateAdditionalInfo(birthdate, today, years) {
+            const totalDays = Math.floor((today - birthdate) / (1000 * 60 * 60 * 24));
+            const totalWeeks = Math.floor(totalDays / 7);
+            
+            document.getElementById('totalDays').textContent = totalDays.toLocaleString();
+            document.getElementById('totalWeeks').textContent = totalWeeks.toLocaleString();
+            
+            const birthDayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const birthDayName = birthDayNames[birthdate.getDay()];
+            document.getElementById('birthDay').textContent = birthDayName;
+            
+            const nextBirthday = new Date(today.getFullYear(), birthdate.getMonth(), birthdate.getDate());
+            if (nextBirthday < today) {
+                nextBirthday.setFullYear(today.getFullYear() + 1);
+            }
+            
+            const daysUntilBirthday = Math.floor((nextBirthday - today) / (1000 * 60 * 60 * 24));
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const nextBirthdayStr = `${monthNames[nextBirthday.getMonth()]} ${nextBirthday.getDate()}, ${nextBirthday.getFullYear()}`;
+            document.getElementById('nextBirthday').textContent = `${nextBirthdayStr} (${daysUntilBirthday} days)`;
+        }
+        
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        function bookmarkPage() {
+            const title = document.title;
+            const url = window.location.href;
+            
+            if (navigator.userAgent.indexOf('iPhone') !== -1 || navigator.userAgent.indexOf('iPad') !== -1) {
+                alert('Press the Share button and select "Add to Home Screen"');
+            } else if (navigator.userAgent.indexOf('Android') !== -1) {
+                alert('Press the menu button and select "Add to Home Screen"');
+            } else if (window.sidebar && window.sidebar.addPanel) {
+                window.sidebar.addPanel(title, url, '');
+            } else if (window.external && 'AddFavorite' in window.external) {
+                window.external.AddFavorite(url, title);
+            } else {
+                alert('Press Ctrl+D to bookmark this page');
+            }
+        }
+        
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+            results.style.display = 'none';
+        }
+        
+        function hideError() {
+            errorMessage.classList.remove('show');
+        }
+        
+        const translations = {
+            en: {
+                title: 'Age Calculator',
+                back: '← Back to Home',
+                birthDate: 'Birth Date',
+                calculate: 'Calculate Age',
+                yourAge: 'Your Age',
+                years: 'Years',
+                months: 'Months',
+                days: 'Days',
+                nextBirthday: 'Next Birthday',
+                daysUntil: 'days until',
+                totalDays: 'Total Days Lived',
+                totalWeeks: 'Total Weeks Lived',
+                birthDay: 'Birth Day',
+                nextBirthdayLabel: '-'
+            },
+            'zh-CN': {
+                title: '年龄计算器',
+                back: '← 返回首页',
+                birthDate: '出生日期',
+                calculate: '计算年龄',
+                yourAge: '您的年龄',
+                years: '岁',
+                months: '个月',
+                days: '天',
+                nextBirthday: '下一个生日',
+                daysUntil: '天后',
+                totalDays: '总天数',
+                totalWeeks: '总周数',
+                birthDay: '出生日',
+                nextBirthdayLabel: '-'
+            },
+            'zh-TW': {
+                title: '年齡計算器',
+                back: '← 返回首頁',
+                birthDate: '出生日期',
+                calculate: '計算年齡',
+                yourAge: '您的年齡',
+                years: '歲',
+                months: '個月',
+                days: '天',
+                nextBirthday: '下一個生日',
+                daysUntil: '天後',
+                totalDays: '總天數',
+                totalWeeks: '總周數',
+                birthDay: '出生日',
+                nextBirthdayLabel: '-'
+            }
+        };
+        
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.title = t.title;
+            document.querySelector('h1').textContent = t.title;
+            document.querySelector('a').textContent = t.back;
+            
+            const labels = document.querySelectorAll('.calculator label');
+            labels[0].textContent = t.birthDate;
+            
+            const buttons = document.querySelectorAll('.btn-calculate');
+            buttons[0].textContent = t.calculate;
+            
+            const resultHeaders = document.querySelectorAll('.results h3');
+            resultHeaders[0].textContent = t.yourAge;
+            
+            const resultLabels = document.querySelectorAll('.result-card .label');
+            resultLabels[0].textContent = t.years;
+            resultLabels[1].textContent = t.months;
+            resultLabels[2].textContent = t.days;
+            
+            const extraHeaders = document.querySelectorAll('.extra-info h4');
+            extraHeaders[0].textContent = t.nextBirthday;
+            
+            const extraLabels = document.querySelectorAll('.extra-item .label');
+            extraLabels[0].textContent = t.nextBirthday;
+            extraLabels[1].textContent = t.totalDays;
+            extraLabels[2].textContent = t.totalWeeks;
+            extraLabels[3].textContent = t.birthDay;
+            
+            localStorage.setItem('language', lang);
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'en';
+        document.getElementById('languageSelect').value = savedLang;
+        changeLanguage(savedLang);
+        
+        birthdateInput.addEventListener('input', hideError);
+    </script>
+</body>
+</html>

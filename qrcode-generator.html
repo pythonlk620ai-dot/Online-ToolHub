@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Free QR Code Generator | Create Static QR Codes Online</title>
+    <meta name="description" content="Generate free QR codes instantly with our best QR code generator. Create static QR codes for text, URLs, and more. Fast, easy, and 100% free online tool.">
+    <meta name="keywords" content="best free qr code generator, best qr code generator, static qr code generator, qr code generator pro, qr code generator online, free qr code maker, qr code creator, online qr code generator, qr code generator no download, qr code generator free">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Best Free QR Code Generator - Create Static QR Codes Online">
+    <meta property="og:description" content="Generate free QR codes instantly. Create static QR codes for text, URLs, and more. Fast, easy, and 100% free online tool.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://online-toolhub.com/qrcode-generator.html">
+    <meta property="og:image" content="https://online-toolhub.com/qrcode-preview.png">
+    <link rel="canonical" href="https://online-toolhub.com/qrcode-generator.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .input-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 100px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        #qrContainer {
+            margin-top: 30px;
+            display: none;
+        }
+        #qrContainer.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        #qrCode {
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            background: white;
+            display: inline-block;
+        }
+        .download-btn {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            font-size: 16px;
+            padding: 12px 35px;
+        }
+        .download-btn:hover {
+            box-shadow: 0 10px 20px rgba(56, 239, 125, 0.4);
+        }
+        .error {
+            color: #e74c3c;
+            margin-top: 15px;
+            display: none;
+        }
+        .error.show {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .footer-tools {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .footer-tool {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .footer-tool:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-tool:active {
+            transform: translateY(0);
+        }
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .language-selector select {
+            padding: 8px 30px 8px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        .language-selector select:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+        .language-selector select:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .language-selector select option {
+            background: #667eea;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .footer-tools {
+                bottom: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            .footer-tool {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en" selected>English</option>
+                <option value="zh-CN">简体中文</option>
+                <option value="zh-TW">中文繁體</option>
+            </select>
+        </div>
+        <h1>QR Code Generator</h1>
+        <div class="input-group">
+            <label for="textInput">Enter your text:</label>
+            <textarea id="textInput" placeholder="Enter text or URL here..."></textarea>
+        </div>
+        <button onclick="generateQR()">Generate QR Code</button>
+        <p class="error" id="error">Please enter some text to generate a QR code</p>
+        <div id="qrContainer">
+            <div id="qrCode"></div>
+            <button class="download-btn" onclick="downloadQR()">Download QR Code</button>
+        </div>
+        <div style="margin-top: 30px;">
+            <a href="index.html" style="color: #667eea; text-decoration: none; font-weight: 600;">← Back to Home</a>
+        </div>
+    </div>
+    <div class="footer-tools">
+        <button class="footer-tool" onclick="toggleFullScreen()" title="Toggle Full Screen">⛶</button>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        let qrcode = null;
+
+        function generateQR() {
+            const textInput = document.getElementById('textInput');
+            const error = document.getElementById('error');
+            const qrContainer = document.getElementById('qrContainer');
+            const qrCode = document.getElementById('qrCode');
+
+            const text = textInput.value.trim();
+
+            if (!text) {
+                error.classList.add('show');
+                return;
+            }
+
+            error.classList.remove('show');
+            qrCode.innerHTML = '';
+            
+            qrcode = new QRCode(qrCode, {
+                text: text,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            qrContainer.classList.add('show');
+        }
+
+        function downloadQR() {
+            if (!qrcode) {
+                return;
+            }
+
+            const qrCode = document.getElementById('qrCode');
+            const canvas = qrCode.querySelector('canvas');
+            const img = document.getElementById('qrCodeImg');
+
+            let dataURL;
+            if (canvas) {
+                dataURL = canvas.toDataURL('image/png');
+            } else if (img) {
+                dataURL = img.src;
+            } else {
+                return;
+            }
+
+            const link = document.createElement('a');
+            link.download = 'qrcode.png';
+            link.href = dataURL;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        document.getElementById('textInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                generateQR();
+            }
+        });
+        
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        function bookmarkPage() {
+            const title = document.title;
+            const url = window.location.href;
+            
+            if (navigator.userAgent.indexOf('iPhone') !== -1 || navigator.userAgent.indexOf('iPad') !== -1) {
+                alert('Press the Share button and select "Add to Home Screen"');
+            } else if (navigator.userAgent.indexOf('Android') !== -1) {
+                alert('Press the menu button and select "Add to Home Screen"');
+            } else if (window.sidebar && window.sidebar.addPanel) {
+                window.sidebar.addPanel(title, url, '');
+            } else if (window.external && 'AddFavorite' in window.external) {
+                window.external.AddFavorite(url, title);
+            } else {
+                alert('Press Ctrl+D to bookmark this page');
+            }
+        }
+        
+        const translations = {
+            en: {
+                title: 'QR Code Generator',
+                back: '← Back to Home',
+                label: 'Enter your text:',
+                placeholder: 'Enter text or URL here...',
+                button: 'Generate QR Code',
+                error: 'Please enter some text to generate a QR code',
+                download: 'Download QR Code'
+            },
+            'zh-CN': {
+                title: '二维码生成器',
+                back: '← 返回首页',
+                label: '输入您的文字：',
+                placeholder: '在此输入文字或网址...',
+                button: '生成二维码',
+                error: '请输入一些文字以生成二维码',
+                download: '下载你的二维码'
+            },
+            'zh-TW': {
+                title: '二維碼生成器',
+                back: '← 返回首頁',
+                label: '輸入您的文字：',
+                placeholder: '在此輸入文字或網址...',
+                button: '生成二維碼',
+                error: '請輸入一些文字以生成二維碼',
+                download: '  下載你的二維碼  '
+            }
+        };
+        
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.title = t.title;
+            document.querySelector('h1').textContent = t.title;
+            
+            const backLink = document.querySelector('a[href="index.html"]');
+            if (backLink) {
+                backLink.textContent = t.back;
+            }
+            
+            const label = document.querySelector('label[for="textInput"]');
+            if (label) {
+                label.textContent = t.label;
+            }
+            
+            const textarea = document.getElementById('textInput');
+            if (textarea) {
+                textarea.placeholder = t.placeholder;
+            }
+            
+            const generateBtn = document.querySelector('button[onclick="generateQR()"]');
+            if (generateBtn) {
+                generateBtn.textContent = t.button;
+            }
+            
+            const error = document.getElementById('error');
+            if (error) {
+                error.textContent = t.error;
+            }
+            
+            const downloadBtn = document.querySelector('.download-btn');
+            if (downloadBtn) {
+                downloadBtn.textContent = t.download;
+            }
+            
+            localStorage.setItem('language', lang);
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'en';
+        document.getElementById('languageSelect').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
+</body>
+</html>

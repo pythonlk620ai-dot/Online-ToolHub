@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Online Tools Hub | Free Tool Guides & Tips</title>
+    <meta name="description" content="Read our blog for useful guides and tips about QR codes, online tools, and more. Learn how to use QR codes effectively in your daily life and business.">
+    <meta name="keywords" content="blog, qr code guide, qr code tips, online tools blog, qr code basics, qr code tutorial, qr code for beginners">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Blog - Online Tools Hub | QR Code Guides & Tips">
+    <meta property="og:description" content="Read our blog for useful guides and tips about QR codes and online tools.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Blog - Online Tools Hub">
+    <meta name="twitter:description" content="Useful guides and tips about QR codes and online tools.">
+    <link rel="canonical" href="https://online-toolhub.com/blog.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 110px 20px 40px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+        }
+        
+        .blog-content {
+            padding: 30px;
+        }
+        
+        .blog-content h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .blog-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .blog-content a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .blog-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .blog-content a::after {
+            content: ' →';
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        
+        .back-link a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .navbar .logo {
+            color: white;
+            font-size: 1.5em;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .navbar .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .navbar .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        .navbar .nav-links a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .language-selector {
+            position: relative;
+            margin-left: 20px;
+        }
+        
+        .language-selector select {
+            padding: 8px 30px 8px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        
+        .language-selector select:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .language-selector select:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-selector select option {
+            background: #667eea;
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: white;
+        }
+        
+        .footer-tools {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .footer-tool {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer-tool:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer-tool:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-tools {
+                bottom: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            
+            .footer-tool {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Online Tools Hub</a>
+            <div class="nav-links">
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About</a>
+                <a href="help.html">Help</a>
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en" selected>English</option>
+                        <option value="zh-CN">简体中文</option>
+                        <option value="zh-TW">中文繁體</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+        
+        <header>
+            <h1>Blog & Guides</h1>
+            <p class="subtitle">Learn about QR codes, online tools, and more</p>
+        </header>
+        
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-image">📱</div>
+                <div class="blog-content">
+                    <h2 id="blogTitle1">What is a QR Code?</h2>
+                    <p id="blogDesc1">QR Code is a two-dimensional version of the barcode, typically made up of black and white pixel patterns. Denso Wave, a Japanese subsidiary of the Toyota supplier Denso, developed them for marking components in order to accelerate logistics processes for their automobile production. Now, it has found its way into mobile marketing with the widespread adoption of smartphones.</p>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image">💡</div>
+                <div class="blog-content">
+                    <h2 id="blogTitle2">Benefits of Using QR Codes</h2>
+                    <p id="blogDesc2">QR codes offer numerous benefits for businesses and individuals. They provide instant access to information, reduce printing costs, and enhance customer engagement. Learn how QR codes can benefit your business or personal use.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Online Tools Hub. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <div class="footer-tools">
+        <button class="footer-tool" onclick="toggleFullScreen()" title="Toggle Full Screen">⛶</button>
+    </div>
+    
+    <script>
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        const translations = {
+            en: {
+                title: 'Blog - Online Tools Hub',
+                subtitle: 'Learn about QR codes, online tools, and more',
+                about: 'About',
+                help: 'Help',
+                back: '← Back to Home',
+                footer: '© 2023 Online Tools Hub. All rights reserved.',
+                blogTitle1: 'What is a QR Code?',
+                blogDesc1: 'QR Code is a two-dimensional version of the barcode, typically made up of black and white pixel patterns. Denso Wave, a Japanese subsidiary of the Toyota supplier Denso, developed them for marking components in order to accelerate logistics processes for their automobile production. Now, it has found its way into mobile marketing with the widespread adoption of smartphones.',
+                blogTitle2: 'Benefits of Using QR Codes',
+                blogDesc2: 'QR codes offer numerous benefits for businesses and individuals. They provide instant access to information, reduce printing costs, and enhance customer engagement. Learn how QR codes can benefit your business or personal use.'
+            },
+            'zh-CN': {
+                title: '博客 - 在线工具 hub',
+                subtitle: '了解二维码、在线工具等',
+                about: '关于我们',
+                help: '帮助',
+                back: '← 返回首页',
+                footer: '© 2023 在线工具 hub。保留所有权利。',
+                blogTitle1: '什么是二维码？',
+                blogDesc1: '二维码是条形码的二维版本，通常由黑白像素图案组成。 Denso Wave是丰田供应商Denso的日本子公司，开发二维码是为了标记零部件，以加速汽车生产的物流流程。现在，随着智能手机的普及，它已经进入了移动营销领域。',
+                blogTitle2: '使用二维码的好处',
+                blogDesc2: '二维码为企业和个人带来了诸多好处。它们可以即时访问信息，降低打印成本，增强客户参与度。了解二维码如何为您的业务或个人使用带来益处。'
+            },
+            'zh-TW': {
+                title: '博客 - 在線工具 hub',
+                subtitle: '了解二維碼、在線工具等',
+                about: '關於我們',
+                help: '幫助',
+                back: '← 返回首頁',
+                footer: '© 2023 在線工具 hub。保留所有權利。',
+                blogTitle1: '什麼是二維碼？',
+                blogDesc1: '二維碼是條形碼的二維版本，通常由黑白像素圖案組成。Denso Wave是豐田供應商Denso的日本子公司，開發二維碼是為了標記零部件，以加速汽車生產的物流流程。現在，隨著智能手機的普及，它已經進入了移動營銷領域。',
+                blogTitle2: '使用二維碼的好處',
+                blogDesc2: '二維碼為企業和個人帶來了諸多好處。它可以即時訪問信息，降低打印成本，增強客戶參與度。了解二維碼如何為您的業務或個人使用帶來益處。'
+            }
+        };
+        
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.title = t.title;
+            document.querySelector('h1').textContent = t.title;
+            document.querySelector('.subtitle').textContent = t.subtitle;
+            document.querySelector('.footer p').textContent = t.footer;
+            
+            const navLinks = document.querySelectorAll('.nav-links a');
+            if (navLinks.length >= 3) {
+                navLinks[0].textContent = 'Blog';
+                navLinks[1].textContent = t.about;
+                navLinks[2].textContent = t.help;
+            }
+            
+            const backLink = document.querySelector('.back-link a');
+            if (backLink) {
+                backLink.textContent = t.back;
+            }
+            
+            const blogTitles = document.querySelectorAll('.blog-content h2');
+            const blogDescs = document.querySelectorAll('.blog-content p');
+            
+            if (blogTitles.length >= 2) {
+                blogTitles[0].textContent = t.blogTitle1;
+                blogTitles[1].textContent = t.blogTitle2;
+            }
+            
+            if (blogDescs.length >= 2) {
+                blogDescs[0].textContent = t.blogDesc1;
+                blogDescs[1].textContent = t.blogDesc2;
+            }
+            
+            localStorage.setItem('language', lang);
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'en';
+        document.getElementById('languageSelect').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
+</body>
+</html>

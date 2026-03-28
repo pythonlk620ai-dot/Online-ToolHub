@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Tools Hub - Free Online Tools for Daily Needs</title>
+    <meta name="description" content="Online Tools Hub - A collection of free online tools including QR Code Generator, Calculator, Timer, Random Number Generator, Picker Wheel, Mortgage Calculator, Password Generator, Age Calculator, and Unit Converter. Fast, easy to use, and completely free.">
+    <meta name="keywords" content="online tools, free tools, QR code generator, calculator, timer, random number generator, picker wheel, mortgage calculator, password generator, age calculator, unit converter, online tools hub, best online tools">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Online Tools Hub - Free Online Tools for Daily Needs">
+    <meta property="og:description" content="A collection of free online tools including QR Code Generator, Calculator, Timer, Random Number Generator, Picker Wheel, Mortgage Calculator, Password Generator, Age Calculator, and Unit Converter.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Online Tools Hub - Free Online Tools">
+    <meta name="twitter:description" content="Free online tools for your daily needs. Fast, easy to use, and completely free.">
+    <link rel="canonical" href="https://online-toolhub.com/index.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 110px 20px 40px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        
+        header h1 span {
+            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.3em;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        }
+        
+        .tool-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .tool-card:hover .tool-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .tool-icon {
+            font-size: 4.5em;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tool-card h2 {
+            color: #333;
+            font-size: 1.9em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .tool-card p {
+            color: #666;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+        
+        .tool-card .arrow {
+            margin-top: 25px;
+            color: #667eea;
+            font-size: 1.3em;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .tool-card:hover .arrow {
+            transform: translateX(10px);
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar .logo {
+            color: white;
+            font-size: 1.6em;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: all 0.3s;
+        }
+        
+        .navbar .logo:hover {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        .navbar .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .navbar .nav-links a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: none;
+            font-size: 1.15em;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+        
+        .navbar .nav-links a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .language-selector {
+            position: relative;
+            margin-left: 20px;
+        }
+        
+        .language-selector select {
+            padding: 10px 35px 10px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.05em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 45px;
+        }
+        
+        .language-selector select:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-selector select:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-selector select option {
+            background: #667eea;
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 30px;
+            color: white;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+        }
+        
+        .footer-tools {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .footer-tool {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.4em;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .footer-tool:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+        }
+        
+        .footer-tool:active {
+            transform: translateY(-2px) scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .tool-card {
+                padding: 40px 30px;
+            }
+            
+            .navbar {
+                padding: 15px 20px;
+            }
+            
+            .navbar .nav-links {
+                gap: 15px;
+            }
+            
+            .navbar .nav-links a {
+                font-size: 1em;
+                padding: 8px 15px;
+            }
+            
+            .footer-tools {
+                bottom: 15px;
+                right: 15px;
+                gap: 10px;
+            }
+            
+            .footer-tool {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Online Tools Hub</a>
+            <div class="nav-links">
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About</a>
+                <a href="help.html">Help</a>
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en" selected>English</option>
+                        <option value="zh-CN">简体中文</option>
+                        <option value="zh-TW">中文繁體</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+        
+        <header>
+            <h1>Free Online <span>Tools Hub</span></h1>
+            <p class="subtitle">Essential tools for your daily needs. Fast, free, and easy to use.</p>
+        </header>
+        
+        <div class="tools-grid">
+            <a href="qrcode-generator.html" style="text-decoration: none;">
+                <div class="tool-card">
+                    <div class="tool-icon">📱</div>
+                    <h2>QR Code Generator</h2>
+                    <p>Generate QR codes from text or URLs instantly</p>
+                    <div class="arrow">Go to Tool →</div>
+                </div>
+            </a>
+            <a href="online-calculator.html" style="text-decoration: none;">
+                <div class="tool-card">
+                    <div class="tool-icon">🧮</div>
+                    <h2>Calculator</h2>
+                    <p>Basic calculator for arithmetic operations</p>
+                    <div class="arrow">Go to Tool →</div>
+                </div>
+            </a>
+            <a href="online-stopwatch.html" style="text-decoration: none;">
+                <div class="tool-card">
+                    <div class="tool-icon">⏱️</div>
+                    <h2>Timer</h2>
+                    <p>Countdown timer for tasks and activities</p>
+                    <div class="arrow">Go to Tool →</div>
+                </div>
+            </a>
+            <a href="random-number-generator.html" style="text-decoration: none;">
+                <div class="tool-card">
+                    <div class="tool-icon">🎲</div>
+                    <h2>Random Number Generator</h2>
+                    <p>Generate random numbers with custom ranges</p>
+                    <div class="arrow">Go to Tool →</div>
+                </div>
+            </a>
+            <a href="spin-the-wheel.html" style="text-decoration: none;">
+                <div class="tool-card">
+                    <div class="tool-icon">🎡</div>
+                    <h2>Picker Wheel</h2>
+                    <p>Spin the wheel to make random choices</p>
+                    <div class="arrow">Go to Tool →</div>
+                </div>
+            </a>
+            <a href="mortgage-calculator.html" style="text-decoration: none;">
+                <div class="tool-card">
+                    <div class="tool-icon">🏠</div>
+                    <h2>Mortgage Calculator</h2>
+                    <p>Calculate mortgage payments easily</p>
+                    <div class="arrow">Go to Tool →</div>
+                </div>
+            </a>
+            <a href="random-password-generator.html" style="text-decoration: none;">
+                <div class="tool-card">
+                    <div class="tool-icon">🔒</div>
+                    <h2>Password Generator</h2>
+                    <p>Create secure passwords with custom options</p>
+                    <div class="arrow">Go to Tool →</div>
+                </div>
+            </a>
+            <a href="age-calculator.html" style="text-decoration: none;">
+                <div class="tool-card">
+                    <div class="tool-icon">🎂</div>
+                    <h2>Age Calculator</h2>
+                    <p>Calculate exact age in years, months, and days</p>
+                    <div class="arrow">Go to Tool →</div>
+                </div>
+            </a>
+            <a href="unit-converter.html" style="text-decoration: none;">
+                <div class="tool-card">
+                    <div class="tool-icon">⚖️</div>
+                    <h2>Unit Converter</h2>
+                    <p>Convert between length, weight, and temperature units</p>
+                    <div class="arrow">Go to Tool →</div>
+                </div>
+            </a>
+            <a href="flip-coin-roll-dice.html" style="text-decoration: none;">
+                <div class="tool-card">
+                    <div class="tool-icon">🪙</div>
+                    <h2>Flip a Coin / Roll a Die</h2>
+                    <p>A simple virtual coin flip or die roll with animations</p>
+                    <div class="arrow">Go to Tool →</div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Online Tools Hub. All tools are free to use.</p>
+        </div>
+    </div>
+    
+    <div class="footer-tools">
+        <button class="footer-tool" onclick="toggleFullScreen()" title="Toggle Full Screen">⛶</button>
+    </div>
+    
+    <script>
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        const translations = {
+            en: {
+                title: 'Online Tools Hub',
+                subtitle: 'Free online tools for your daily needs',
+                about: 'About',
+                help: 'Help',
+                qrcode: 'QR Code Generator',
+                qrcodeDesc: 'Generate QR codes from text or URLs instantly',
+                calculator: 'Calculator',
+                calculatorDesc: 'Basic calculator for arithmetic operations',
+                timer: 'Timer',
+                timerDesc: 'Countdown timer for tasks and activities',
+                rng: 'Random Number Generator',
+                rngDesc: 'Generate random numbers with custom ranges',
+                picker: 'Picker Wheel',
+                pickerDesc: 'Spin the wheel to make random choices',
+                mortgage: 'Mortgage Calculator',
+                mortgageDesc: 'Calculate mortgage payments easily',
+                password: 'Password Generator',
+                passwordDesc: 'Create secure passwords with custom options',
+                age: 'Age Calculator',
+                ageDesc: 'Calculate exact age in years, months, and days',
+                converter: 'Unit Converter',
+                converterDesc: 'Convert between length, weight, and temperature units',
+                coinDie: 'Flip a Coin / Roll a Die',
+                coinDieDesc: 'A simple virtual coin flip or die roll with animations',
+                footer: '© 2023 Online Tools Hub. All tools are free to use.'
+            },
+            'zh-CN': {
+                title: '在线工具 hub',
+                subtitle: '免费的在线工具，满足您的日常需求',
+                about: '关于我们',
+                help: '帮助',
+                qrcode: '二维码生成器',
+                qrcodeDesc: '立即从文本或URL生成二维码',
+                calculator: '计算器',
+                calculatorDesc: '用于算术运算的基础计算器',
+                timer: '计时器',
+                timerDesc: '用于任务和活动的倒计时计时器',
+                rng: '随机数生成器',
+                rngDesc: '使用自定义范围生成随机数',
+                picker: '选择轮',
+                pickerDesc: '旋转轮子以做出随机选择',
+                mortgage: '房贷计算器',
+                mortgageDesc: '轻松计算房贷付款',
+                password: '密码生成器',
+                passwordDesc: '使用自定义选项创建安全密码',
+                age: '年龄计算器',
+                ageDesc: '计算准确的年、月、日年龄',
+                converter: '单位转换器',
+                converterDesc: '在长度、重量和温度之间转换',
+                coinDie: '抛硬币 / 掷骰子',
+                coinDieDesc: '一个简单的虚拟抛硬币或掷骰子，带有动画效果',
+                footer: '© 2023 在线工具 hub。所有工具均可免费使用。'
+            },
+            'zh-TW': {
+                title: '在線工具 hub',
+                subtitle: '免費的在線工具，滿足您的日常需求',
+                about: '關於我們',
+                help: '幫助',
+                qrcode: '二維碼生成器',
+                qrcodeDesc: '立即從文本或URL生成二維碼',
+                calculator: '計算器',
+                calculatorDesc: '用於算術運算的基礎計算器',
+                timer: '計時器',
+                timerDesc: '用於任務和活動的倒計時計時器',
+                rng: '隨機數生成器',
+                rngDesc: '使用自定義範圍生成隨機數',
+                picker: '選擇輪',
+                pickerDesc: '旋轉輪子以做出隨機選擇',
+                mortgage: '房貸計算器',
+                mortgageDesc: '輕鬆計算房貸付款',
+                password: '密碼生成器',
+                passwordDesc: '使用自定義選項創建安全密碼',
+                age: '年齡計算器',
+                ageDesc: '計算準確的年、月、日年齡',
+                converter: '單位轉換器',
+                converterDesc: '在長度、重量和溫度之間轉換',
+                coinDie: '拋硬幣 / 掷骰子',
+                coinDieDesc: '一個簡單的虛擬拋硬幣或掷骰子，帶有動畫效果',
+                footer: '© 2023 在線工具 hub。所有工具均可免費使用。'
+            }
+        };
+        
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.title = t.title;
+            document.querySelector('h1').innerHTML = t.title;
+            document.querySelector('.subtitle').textContent = t.subtitle;
+            document.querySelector('.footer p').textContent = t.footer;
+            
+            const navLinks = document.querySelectorAll('.nav-links a');
+            if (navLinks.length >= 3) {
+                navLinks[0].textContent = 'Blog';
+                navLinks[1].textContent = t.about;
+                navLinks[2].textContent = t.help;
+            }
+            
+            const toolCards = document.querySelectorAll('.tool-card');
+            const toolTitles = document.querySelectorAll('.tool-card h2');
+            const toolDescs = document.querySelectorAll('.tool-card p');
+            
+            toolTitles[0].textContent = t.qrcode;
+            toolDescs[0].textContent = t.qrcodeDesc;
+            toolTitles[1].textContent = t.calculator;
+            toolDescs[1].textContent = t.calculatorDesc;
+            toolTitles[2].textContent = t.timer;
+            toolDescs[2].textContent = t.timerDesc;
+            toolTitles[3].textContent = t.rng;
+            toolDescs[3].textContent = t.rngDesc;
+            toolTitles[4].textContent = t.picker;
+            toolDescs[4].textContent = t.pickerDesc;
+            toolTitles[5].textContent = t.mortgage;
+            toolDescs[5].textContent = t.mortgageDesc;
+            toolTitles[6].textContent = t.password;
+            toolDescs[6].textContent = t.passwordDesc;
+            toolTitles[7].textContent = t.age;
+            toolDescs[7].textContent = t.ageDesc;
+            toolTitles[8].textContent = t.converter;
+            toolDescs[8].textContent = t.converterDesc;
+            toolTitles[9].textContent = t.coinDie;
+            toolDescs[9].textContent = t.coinDieDesc;
+            
+            localStorage.setItem('language', lang);
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'en';
+        document.getElementById('languageSelect').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
+</body>
+</html>

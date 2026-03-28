@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - Online Tools Hub | Free Online Tools Guide</title>
+    <meta name="description" content="Online Tools Hub Help Center - Get assistance with QR Code Generator, Calculator, Timer, Random Number Generator, Picker Wheel, Mortgage Calculator, Password Generator, Age Calculator, and Unit Converter.">
+    <meta name="keywords" content="online tools help, online tools support, QR code help, calculator help, timer help, random number help, picker wheel help, mortgage calculator help, password generator help, age calculator help, unit converter help, online tools hub help">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Online Tools Hub Help & Support">
+    <meta property="og:description" content="Get help and support for all our free online tools.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Online Tools Hub Help & Support">
+    <meta name="twitter:description" content="Get assistance with all our free online tools.">
+    <link rel="canonical" href="https://online-toolhub.com/help.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .back-link {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            display: inline-block;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        .back-link a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        .help-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .help-section {
+            margin-bottom: 35px;
+        }
+        .help-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .help-section h2 .icon {
+            font-size: 1.5em;
+        }
+        .faq-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 15px 20px;
+            font-weight: 600;
+            color: #2d3436;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .faq-question:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+        .faq-question .arrow {
+            transition: transform 0.3s;
+        }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: #636e72;
+            line-height: 1.8;
+        }
+        .faq-item.active .faq-answer {
+            padding: 15px 20px;
+            max-height: 500px;
+        }
+        .faq-item.active .arrow {
+            transform: rotate(180deg);
+        }
+        .quick-tips {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            margin-top: 30px;
+        }
+        .quick-tips h3 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        .tip-list {
+            list-style: none;
+        }
+        .tip-list li {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .tip-list li .icon {
+            font-size: 1.3em;
+        }
+        .contact-section {
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 15px;
+            text-align: center;
+        }
+        .contact-section h3 {
+            color: #2d3436;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .contact-section p {
+            color: #636e72;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        .contact-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .language-selector select {
+            padding: 8px 30px 8px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        .language-selector select:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+        .language-selector select:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .language-selector select option {
+            background: #667eea;
+            color: white;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .help-content {
+                padding: 25px;
+            }
+        }
+        .footer-tools {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .footer-tool {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .footer-tool:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-tool:active {
+            transform: translateY(0);
+        }
+        @media (max-width: 768px) {
+            .footer-tools {
+                bottom: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            .footer-tool {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en" selected>English</option>
+                <option value="zh-CN">简体中文</option>
+                <option value="zh-TW">中文繁體</option>
+            </select>
+        </div>
+        <header>
+            <h1>Help & Support</h1>
+        </header>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+        
+        <div class="help-content">
+            <div class="help-section">
+                <h2><span class="icon">❓</span> Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Are these tools free to use?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! All our tools are completely free to use with no hidden charges or subscription fees. We believe in providing accessible tools for everyone.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do I need to register or create an account?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        No, you don't need to register or create an account. All our tools work instantly without any personal information required.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Are my data and privacy protected?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely! We don't store any of your data on our servers. All calculations are done directly in your browser, ensuring your privacy and security.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do these tools work on mobile devices?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, all our tools are fully responsive and work perfectly on smartphones, tablets, and desktop computers.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Can I download the results?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        For tools like QR Code Generator, yes! You can download your results. For other tools, you can easily copy the results to your clipboard using the copy button.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What browsers are supported?</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Our tools work on all modern browsers including Chrome, Firefox, Safari, Edge, and Opera. We recommend using the latest version of your browser for the best experience.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-tips">
+                <h3><span class="icon">💡</span> Quick Tips</h3>
+                <ul class="tip-list">
+                    <li><span class="icon">✅</span> Use the full-screen mode for better visibility</li>
+                    <li><span class="icon">🔖</span> Bookmark your favorite tools for quick access</li>
+                    <li><span class="icon">📱</span> All tools are mobile-friendly</li>
+                    <li><span class="icon">⚡</span> No installation required - works instantly</li>
+                </ul>
+            </div>
+            
+            <div class="contact-section">
+                <h3>Still Need Help?</h3>
+                <p>If you have any questions, suggestions, or encounter any issues, please don't hesitate to contact us.</p>
+                <a href="mailto:contact@onlinetoolshub.com" class="contact-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-tools">
+        <button class="footer-tool" onclick="toggleFullScreen()" title="Toggle Full Screen">⛶</button>
+    </div>
+    
+    <script>
+        function toggleFaq(element) {
+            element.parentElement.classList.toggle('active');
+        }
+        
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        function bookmarkPage() {
+            const title = document.title;
+            const url = window.location.href;
+            
+            if (navigator.userAgent.indexOf('iPhone') !== -1 || navigator.userAgent.indexOf('iPad') !== -1) {
+                alert('Press the Share button and select "Add to Home Screen"');
+            } else if (navigator.userAgent.indexOf('Android') !== -1) {
+                alert('Press the menu button and select "Add to Home Screen"');
+            } else if (window.sidebar && window.sidebar.addPanel) {
+                window.sidebar.addPanel(title, url, '');
+            } else if (window.external && 'AddFavorite' in window.external) {
+                window.external.AddFavorite(url, title);
+            } else {
+                alert('Press Ctrl+D to bookmark this page');
+            }
+        }
+        
+        const translations = {
+            en: {
+                title: 'Help & Support',
+                back: '← Back to Home',
+                faq: 'Frequently Asked Questions',
+                freeToUse: 'Are these tools free to use?',
+                freeToUseAns: 'Yes! All our tools are completely free to use with no hidden charges or subscription fees. We believe in providing accessible tools for everyone.',
+                register: 'Do I need to register or create an account?',
+                registerAns: 'No, you don\'t need to register or create an account. All our tools work instantly without any personal information required.',
+                privacy: 'Are my data and privacy protected?',
+                privacyAns: 'Absolutely! We don\'t store any of your data on our servers. All calculations are done directly in your browser, ensuring your privacy and security.',
+                mobile: 'Do these tools work on mobile devices?',
+                mobileAns: 'Yes, all our tools are fully responsive and work perfectly on smartphones, tablets, and desktop computers.',
+                download: 'Can I download the results?',
+                downloadAns: 'For tools like QR Code Generator, yes! You can download your results. For other tools, you can easily copy the results to your clipboard using the copy button.',
+                browsers: 'What browsers are supported?',
+                browsersAns: 'Our tools work on all modern browsers including Chrome, Firefox, Safari, Edge, and Opera. We recommend using the latest version of your browser for the best experience.',
+                quickTips: 'Quick Tips',
+                tip1: 'Use the full-screen mode for better visibility',
+                tip2: 'Bookmark your favorite tools for quick access',
+                tip3: 'All tools are mobile-friendly',
+                tip4: 'No installation required - works instantly',
+                contact: 'Still Need Help?',
+                contactDesc: 'If you have any questions, suggestions, or encounter any issues, please don\'t hesitate to contact us.',
+                contactBtn: 'Contact Us'
+            },
+            'zh-CN': {
+                title: '帮助与支持',
+                back: '← 返回首页',
+                faq: '常见问题',
+                freeToUse: '这些工具是免费使用的吗？',
+                freeToUseAns: '是的！我们的所有工具都是完全免费使用的，没有隐藏费用或订阅费用。我们相信为每个人提供易于使用的工具。',
+                register: '我需要注册或创建账户吗？',
+                registerAns: '不需要，您不需要注册或创建账户。我们的所有工具都可以立即使用，无需任何个人信息。',
+                privacy: '我的数据和隐私受到保护吗？',
+                privacyAns: '绝对！我们不会将您的任何数据存储在我们的服务器上。所有计算都在您的浏览器中直接进行，确保您的隐私和安全。',
+                mobile: '这些工具可以在移动设备上使用吗？',
+                mobileAns: '是的，我们的所有工具都是完全响应式的，可以在智能手机、平板电脑和台式电脑上完美运行。',
+                download: '我可以下载结果吗？',
+                downloadAns: '对于像二维码生成器这样的工具，是的！您可以下载您的结果。对于其他工具，您可以使用复制按钮轻松将结果复制到剪贴板。',
+                browsers: '支持哪些浏览器？',
+                browsersAns: '我们的工具可以在所有现代浏览器上运行，包括 Chrome、Firefox、Safari、Edge 和 Opera。我们建议使用浏览器的最新版本以获得最佳体验。',
+                quickTips: '快速提示',
+                tip1: '使用全屏模式以获得更好的可见性',
+                tip2: '将您最喜欢的工具添加书签以快速访问',
+                tip3: '所有工具都支持移动设备',
+                tip4: '无需安装 - 可立即使用',
+                contact: '仍然需要帮助？',
+                contactDesc: '如果您有任何问题、建议或遇到任何问题，请不要犹豫，与我们联系。',
+                contactBtn: '联系我们'
+            },
+            'zh-TW': {
+                title: '幫助與支持',
+                back: '← 返回首頁',
+                faq: '常見問題',
+                freeToUse: '這些工具是免費使用的嗎？',
+                freeToUseAns: '是的！我們的所有工具都是完全免費使用的，沒有隱藏費用或訂閱費用。我們相信為每個人提供易於使用的工具。',
+                register: '我需要註冊或創建帳戶嗎？',
+                registerAns: '不需要，您不需要註冊或創建帳戶。我們的所有工具都可以立即使用，無需任何個人信息。',
+                privacy: '我的數據和隱私受到保護嗎？',
+                privacyAns: '絕對！我們不會將您的任何數據存儲在我們的服務器上。所有計算都在您的瀏覽器中直接進行，確保您的隱私和安全。',
+                mobile: '這些工具可以在移動設備上使用嗎？',
+                mobileAns: '是的，我們的所有工具都是完全響應式的，可以在智能手機、平板電腦和台式電腦上完美運行。',
+                download: '我可以下載結果嗎？',
+                downloadAns: '對於像二維碼生成器這樣的工具，是的！您可以下載您的結果。對於其他工具，您可以使用複製按鈕輕鬆將結果複製到剪貼板。',
+                browsers: '支持哪些瀏覽器？',
+                browsersAns: '我們的工具可以在所有現代瀏覽器上運行，包括 Chrome、Firefox、Safari、Edge 和 Opera。我們建議使用瀏覽器的最新版本以獲得最佳體驗。',
+                quickTips: '快速提示',
+                tip1: '使用全屏模式以獲得更好的可見性',
+                tip2: '將您最喜歡的工具添加書籤以快速訪問',
+                tip3: '所有工具都支持移動設備',
+                tip4: '無需安裝 - 可立即使用',
+                contact: ' still need help？',
+                contactDesc: '如果您有任何問題、建議或遇到任何問題，請不要猶豫，與我們聯繫。',
+                contactBtn: '聯繫我們'
+            }
+        };
+        
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.title = t.title;
+            document.querySelector('h1').textContent = t.title;
+            document.querySelector('.back-link a').textContent = t.back;
+            
+            const faqSection = document.querySelector('.help-section h2');
+            faqSection.innerHTML = `<span class="icon">❓</span> ${t.faq}`;
+            
+            const faqQuestions = document.querySelectorAll('.faq-question span:first-child');
+            const faqAnswers = document.querySelectorAll('.faq-answer');
+            
+            faqQuestions[0].textContent = t.freeToUse;
+            faqAnswers[0].textContent = t.freeToUseAns;
+            faqQuestions[1].textContent = t.register;
+            faqAnswers[1].textContent = t.registerAns;
+            faqQuestions[2].textContent = t.privacy;
+            faqAnswers[2].textContent = t.privacyAns;
+            faqQuestions[3].textContent = t.mobile;
+            faqAnswers[3].textContent = t.mobileAns;
+            faqQuestions[4].textContent = t.download;
+            faqAnswers[4].textContent = t.downloadAns;
+            faqQuestions[5].textContent = t.browsers;
+            faqAnswers[5].textContent = t.browsersAns;
+            
+            const quickTips = document.querySelector('.quick-tips h3');
+            quickTips.innerHTML = `<span class="icon">💡</span> ${t.quickTips}`;
+            
+            const tips = document.querySelectorAll('.tip-list li');
+            tips[0].innerHTML = `<span class="icon">✅</span> ${t.tip1}`;
+            tips[1].innerHTML = `<span class="icon">🔖</span> ${t.tip2}`;
+            tips[2].innerHTML = `<span class="icon">📱</span> ${t.tip3}`;
+            tips[3].innerHTML = `<span class="icon">⚡</span> ${t.tip4}`;
+            
+            const contactSection = document.querySelector('.contact-section');
+            contactSection.querySelector('h3').textContent = t.contact;
+            contactSection.querySelector('p').textContent = t.contactDesc;
+            contactSection.querySelector('.contact-btn').textContent = t.contactBtn;
+            
+            localStorage.setItem('language', lang);
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'en';
+        document.getElementById('languageSelect').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
+</body>
+</html>

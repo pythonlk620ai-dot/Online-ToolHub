@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Online Tools Hub | Free Online Tools Collection</title>
+    <meta name="description" content="Learn about Online Tools Hub - Your premier destination for free online tools. We provide QR Code Generator, Calculator, Timer, Random Number Generator, and more. Fast, reliable, and completely free.">
+    <meta name="keywords" content="about online tools hub, online tools hub about, free online tools, QR code generator, calculator, timer, random number generator, picker wheel, mortgage calculator, password generator, age calculator, unit converter">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="About Online Tools Hub - Free Online Tools Collection">
+    <meta property="og:description" content="Learn about our mission to provide free, high-quality online tools for everyone.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="About Online Tools Hub">
+    <meta name="twitter:description" content="Your premier destination for free online tools.">
+    <link rel="canonical" href="https://online-toolhub.com/about.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .back-link {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .back-link a {
+            display: inline-block;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        .back-link a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        .about-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .about-section {
+            margin-bottom: 30px;
+        }
+        .about-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .about-section p {
+            color: #636e72;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .feature-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .feature-card h3 {
+            color: #2d3436;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .feature-card p {
+            color: #636e72;
+            font-size: 0.9em;
+        }
+        .team-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #dfe6e9;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .team-member {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 15px;
+        }
+        .team-member .avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            margin: 0 auto 15px;
+        }
+        .team-member h3 {
+            color: #2d3436;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        .team-member p {
+            color: #636e72;
+            font-size: 0.9em;
+        }
+        .contact-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+        }
+        .contact-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .contact-info p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .language-selector select {
+            padding: 8px 30px 8px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        .language-selector select:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+        .language-selector select:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .language-selector select option {
+            background: #667eea;
+            color: white;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .about-content {
+                padding: 25px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .footer-tools {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .footer-tool {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .footer-tool:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-tool:active {
+            transform: translateY(0);
+        }
+        @media (max-width: 768px) {
+            .footer-tools {
+                bottom: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            .footer-tool {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en" selected>English</option>
+                <option value="zh-CN">简体中文</option>
+                <option value="zh-TW">中文繁體</option>
+            </select>
+        </div>
+        <header>
+            <h1>About Us</h1>
+        </header>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-section">
+                <h2>Who We Are</h2>
+                <p>Welcome to Online Tools Hub! We're a passionate team of developers dedicated to creating free, high-quality online tools that make your life easier.</p>
+                <p>Our mission is to provide simple, efficient, and reliable tools that you can access from anywhere, at any time, without any registration or hidden costs.</p>
+            </div>
+            
+            <div class="about-section">
+                <h2>What We Offer</h2>
+                <p>We offer a wide range of tools including:</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">📱</div>
+                        <h3>QR Code Generator</h3>
+                        <p>Create QR codes instantly</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🧮</div>
+                        <h3>Calculator</h3>
+                        <p>Basic and scientific calculations</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">⏱️</div>
+                        <h3>Timer</h3>
+                        <p>Stopwatch and countdown</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🎲</div>
+                        <h3>Random Number</h3>
+                        <p>Generate random numbers</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🎡</div>
+                        <h3>Picker Wheel</h3>
+                        <p>Random decision maker</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">💰</div>
+                        <h3>Mortgage Calculator</h3>
+                        <p>Plan your home loan</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🔑</div>
+                        <h3>Password Generator</h3>
+                        <p>Secure password creation</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📅</div>
+                        <h3>Age Calculator</h3>
+                        <p>Calculate exact age</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">⚖️</div>
+                        <h3>Unit Converter</h3>
+                        <p>Convert units easily</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section team-section">
+                <h2>Our Team</h2>
+                <p>We're a small but dedicated team working hard to bring you the best tools online.</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="avatar">👨‍💻</div>
+                        <h3>Lead Developer</h3>
+                        <p>Full-stack developer passionate about creating useful web tools</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="avatar">🎨</div>
+                        <h3>Designer</h3>
+                        <p>Creative designer focused on user experience</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="avatar">🚀</div>
+                        <h3>Project Manager</h3>
+                        <p>Ensuring smooth development and delivery</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>Have questions, suggestions, or feedback?</p>
+                <p>Email: contact@onlinetoolshub.com</p>
+                <p>We'd love to hear from you!</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-tools">
+        <button class="footer-tool" onclick="toggleFullScreen()" title="Toggle Full Screen">⛶</button>
+    </div>
+    
+    <script>
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        function bookmarkPage() {
+            const title = document.title;
+            const url = window.location.href;
+            
+            if (navigator.userAgent.indexOf('iPhone') !== -1 || navigator.userAgent.indexOf('iPad') !== -1) {
+                alert('Press the Share button and select "Add to Home Screen"');
+            } else if (navigator.userAgent.indexOf('Android') !== -1) {
+                alert('Press the menu button and select "Add to Home Screen"');
+            } else if (window.sidebar && window.sidebar.addPanel) {
+                window.sidebar.addPanel(title, url, '');
+            } else if (window.external && 'AddFavorite' in window.external) {
+                window.external.AddFavorite(url, title);
+            } else {
+                alert('Press Ctrl+D to bookmark this page');
+            }
+        }
+        
+        const translations = {
+            en: {
+                title: 'About Us',
+                back: '← Back to Home',
+                whoWeAre: 'Who We Are',
+                whoWeAreDesc1: 'Welcome to Online Tools Hub! We\'re a passionate team of developers dedicated to creating free, high-quality online tools that make your life easier.',
+                whoWeAreDesc2: 'Our mission is to provide simple, efficient, and reliable tools that you can access from anywhere, at any time, without any registration or hidden costs.',
+                whatWeOffer: 'What We Offer',
+                whatWeOfferDesc: 'We offer a wide range of tools including:',
+                qrCode: 'QR Code Generator',
+                qrCodeDesc: 'Create QR codes instantly',
+                calculator: 'Calculator',
+                calculatorDesc: 'Basic and scientific calculations',
+                timer: 'Timer',
+                timerDesc: 'Stopwatch and countdown',
+                rng: 'Random Number',
+                rngDesc: 'Generate random numbers',
+                picker: 'Picker Wheel',
+                pickerDesc: 'Random decision maker',
+                mortgage: 'Mortgage Calculator',
+                mortgageDesc: 'Plan your home loan',
+                password: 'Password Generator',
+                passwordDesc: 'Secure password creation',
+                age: 'Age Calculator',
+                ageDesc: 'Calculate exact age',
+                converter: 'Unit Converter',
+                converterDesc: 'Convert units easily',
+                ourTeam: 'Our Team',
+                ourTeamDesc: 'We\'re a small but dedicated team working hard to bring you the best tools online.',
+                leadDev: 'Lead Developer',
+                leadDevDesc: 'Full-stack developer passionate about creating useful web tools',
+                designer: 'Designer',
+                designerDesc: 'Creative designer focused on user experience',
+                pm: 'Project Manager',
+                pmDesc: 'Ensuring smooth development and delivery',
+                contact: 'Get in Touch',
+                contactDesc1: 'Have questions, suggestions, or feedback?',
+                contactDesc2: 'Email: contact@onlinetoolshub.com',
+                contactDesc3: 'We\'d love to hear from you!'
+            },
+            'zh-CN': {
+                title: '关于我们',
+                back: '← 返回首页',
+                whoWeAre: '关于我们',
+                whoWeAreDesc1: '欢迎来到在线工具 hub！我们是一支充满热情的开发者团队，致力于创建免费、高质量的在线工具，让您的生活更轻松。',
+                whoWeAreDesc2: '我们的使命是提供简单、高效、可靠的工具，您可以随时随地访问，无需注册或隐藏费用。',
+                whatWeOffer: '我们提供的服务',
+                whatWeOfferDesc: '我们提供各种工具，包括：',
+                qrCode: '二维码生成器',
+                qrCodeDesc: '立即创建二维码',
+                calculator: '计算器',
+                calculatorDesc: '基本和科学计算',
+                timer: '计时器',
+                timerDesc: '秒表和倒计时',
+                rng: '随机数',
+                rngDesc: '生成随机数',
+                picker: '选择轮',
+                pickerDesc: '随机决策器',
+                mortgage: '房贷计算器',
+                mortgageDesc: '计划您的房屋贷款',
+                password: '密码生成器',
+                passwordDesc: '安全密码创建',
+                age: '年龄计算器',
+                ageDesc: '计算准确年龄',
+                converter: '单位转换器',
+                converterDesc: '轻松转换单位',
+                ourTeam: '我们的团队',
+                ourTeamDesc: '我们是一个小但专注的团队，致力于为您提供最佳工具。',
+                leadDev: '首席开发者',
+                leadDevDesc: '全栈开发者，热衷于创建有用的网络工具',
+                designer: '设计师',
+                designerDesc: '专注于用户体验的创意设计师',
+                pm: '项目经理',
+                pmDesc: '确保顺利开发和交付',
+                contact: '联系我们',
+                contactDesc1: '有问题、建议或反馈？',
+                contactDesc2: '邮箱：contact@onlinetoolshub.com',
+                contactDesc3: '我们很乐意听取您的意见！'
+            },
+            'zh-TW': {
+                title: '關於我們',
+                back: '← 返回首頁',
+                whoWeAre: '關於我們',
+                whoWeAreDesc1: '歡迎來到在線工具 hub！我們是一支充滿熱情的開發者團隊，致力於創建免費、高質量的在線工具，讓您的生活更輕鬆。',
+                whoWeAreDesc2: '我們的使命是提供簡單、高效、可靠的工具，您可以隨時隨地訪問，無需註冊或隱藏費用。',
+                whatWeOffer: '我們提供的服務',
+                whatWeOfferDesc: '我們提供各種工具，包括：',
+                qrCode: '二維碼生成器',
+                qrCodeDesc: '立即創建二維碼',
+                calculator: '計算器',
+                calculatorDesc: '基本和科學計算',
+                timer: '計時器',
+                timerDesc: '秒表和倒計時',
+                rng: '隨機數',
+                rngDesc: '生成隨機數',
+                picker: '選擇輪',
+                pickerDesc: '隨機決策器',
+                mortgage: '房貸計算器',
+                mortgageDesc: '計劃您的房屋貸款',
+                password: '密碼生成器',
+                passwordDesc: '安全密碼創建',
+                age: '年齡計算器',
+                ageDesc: '計算準確年齡',
+                converter: '單位轉換器',
+                converterDesc: '輕鬆轉換單位',
+                ourTeam: '我們的團隊',
+                ourTeamDesc: '我們是一個小但專注的團隊，致力於為您提供最佳工具。',
+                leadDev: '首席開發者',
+                leadDevDesc: '全棧開發者，熱衷於創建有用的網絡工具',
+                designer: '設計師',
+                designerDesc: '專注於用戶體驗的創意設計師',
+                pm: '項目經理',
+                pmDesc: '確保順利開發和交付',
+                contact: '聯繫我們',
+                contactDesc1: '有問題、建議或反饋？',
+                contactDesc2: '郵箱：contact@onlinetoolshub.com',
+                contactDesc3: '我們很樂意聽取您的意見！'
+            }
+        };
+        
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.title = t.title;
+            document.querySelector('h1').textContent = t.title;
+            document.querySelector('.back-link a').textContent = t.back;
+            
+            const sections = document.querySelectorAll('.about-section h2');
+            sections[0].textContent = t.whoWeAre;
+            sections[1].textContent = t.whatWeOffer;
+            
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards[0].querySelector('h3').textContent = t.qrCode;
+            featureCards[0].querySelector('p').textContent = t.qrCodeDesc;
+            featureCards[1].querySelector('h3').textContent = t.calculator;
+            featureCards[1].querySelector('p').textContent = t.calculatorDesc;
+            featureCards[2].querySelector('h3').textContent = t.timer;
+            featureCards[2].querySelector('p').textContent = t.timerDesc;
+            featureCards[3].querySelector('h3').textContent = t.rng;
+            featureCards[3].querySelector('p').textContent = t.rngDesc;
+            featureCards[4].querySelector('h3').textContent = t.picker;
+            featureCards[4].querySelector('p').textContent = t.pickerDesc;
+            featureCards[5].querySelector('h3').textContent = t.mortgage;
+            featureCards[5].querySelector('p').textContent = t.mortgageDesc;
+            featureCards[6].querySelector('h3').textContent = t.password;
+            featureCards[6].querySelector('p').textContent = t.passwordDesc;
+            featureCards[7].querySelector('h3').textContent = t.age;
+            featureCards[7].querySelector('p').textContent = t.ageDesc;
+            featureCards[8].querySelector('h3').textContent = t.converter;
+            featureCards[8].querySelector('p').textContent = t.converterDesc;
+            
+            const teamSections = document.querySelectorAll('.team-section h2');
+            teamSections[0].textContent = t.ourTeam;
+            
+            const teamMembers = document.querySelectorAll('.team-member');
+            teamMembers[0].querySelector('h3').textContent = t.leadDev;
+            teamMembers[0].querySelector('p').textContent = t.leadDevDesc;
+            teamMembers[1].querySelector('h3').textContent = t.designer;
+            teamMembers[1].querySelector('p').textContent = t.designerDesc;
+            teamMembers[2].querySelector('h3').textContent = t.pm;
+            teamMembers[2].querySelector('p').textContent = t.pmDesc;
+            
+            const contactInfo = document.querySelector('.contact-info');
+            contactInfo.querySelector('h3').textContent = t.contact;
+            const contactPs = contactInfo.querySelectorAll('p');
+            contactPs[0].textContent = t.contactDesc1;
+            contactPs[1].textContent = t.contactDesc2;
+            contactPs[2].textContent = t.contactDesc3;
+            
+            localStorage.setItem('language', lang);
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'en';
+        document.getElementById('languageSelect').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
+</body>
+</html>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Calculator | Best Scientific Calculator with Advanced Features</title>
+    <meta name="description" content="Free online calculator with advanced features for evaluating percentages, fractions, exponential functions, logarithms, trigonometry. We have around 200 calculators to help you do the math quickly in areas such as finance, fitness, health, and math.">
+    <meta name="keywords" content="free online calculator, best calculator, scientific calculator, math calculator, online calculator, calculator with fractions, percentage calculator, exponential calculator, logarithm calculator, trigonometry calculator, online math solver, free math tools">
+    <meta name="author" content="Online Tools Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Online Calculator - Best Scientific Calculator with Advanced Features">
+    <meta property="og:description" content="Free online calculator with advanced features for percentages, fractions, exponential functions, logarithms, trigonometry. 200+ calculators for finance, fitness, health, math.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free Online Calculator - Best Scientific Calculator">
+    <meta name="twitter:description" content="Free online calculator with advanced features. 200+ calculators for finance, fitness, health, math.">
+    <link rel="canonical" href="https://online-toolhub.com/online-calculator.html">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .calculator {
+            background: linear-gradient(145deg, #1e272e, #2d3436);
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .display-container {
+            background: linear-gradient(135deg, #dfe6e9, #b2bec3);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .history {
+            color: #636e72;
+            font-size: 1.1em;
+            min-height: 25px;
+            text-align: right;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .display {
+            color: #2d3436;
+            font-size: 3.5em;
+            text-align: right;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            word-wrap: break-word;
+            word-break: break-all;
+            font-weight: 600;
+        }
+        .mode-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        .mode-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+            margin: 0 5px;
+        }
+        .mode-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+        }
+        .buttons.scientific {
+            grid-template-columns: repeat(5, 1fr);
+        }
+        button {
+            padding: 18px;
+            font-size: 1.4em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        button:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            filter: brightness(1.1);
+        }
+        .btn-number {
+            background: linear-gradient(135deg, #636e72, #2d3436);
+            color: white;
+        }
+        .btn-number:hover {
+            background: linear-gradient(135deg, #747d8c, #3d4a4e);
+        }
+        .btn-operator {
+            background: linear-gradient(135deg, #0984e3, #74b9ff);
+            color: white;
+        }
+        .btn-operator:hover {
+            background: linear-gradient(135deg, #74b9ff, #a29bfe);
+        }
+        .btn-clear {
+            background: linear-gradient(135deg, #d63031, #ff7675);
+            color: white;
+        }
+        .btn-clear:hover {
+            background: linear-gradient(135deg, #ff7675, #dfe6e9);
+        }
+        .btn-equal {
+            background: linear-gradient(135deg, #00b894, #55efc4);
+            color: white;
+            grid-column: span 2;
+        }
+        .btn-equal:hover {
+            background: linear-gradient(135deg, #55efc4, #00cec9);
+        }
+        .btn-delete {
+            background: linear-gradient(135deg, #e17055, #fab1a0);
+            color: white;
+        }
+        .btn-delete:hover {
+            background: linear-gradient(135deg, #fab1a0, #ffeaa7);
+        }
+        .btn-sci {
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: white;
+            font-size: 1.2em;
+        }
+        .btn-sci:hover {
+            background: linear-gradient(135deg, #a29bfe, #dfe6e9);
+        }
+        .btn-memory {
+            background: linear-gradient(135deg, #fdcb6e, #ffeaa7);
+            color: #2d3436;
+            font-size: 1.1em;
+        }
+        .btn-memory:hover {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+        }
+        .back-link {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            padding: 10px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .back-link a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .footer-tools {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .footer-tool {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .footer-tool:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-tool:active {
+            transform: translateY(0);
+        }
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .language-selector select {
+            padding: 8px 30px 8px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        .language-selector select:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+        .language-selector select:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .language-selector select option {
+            background: #667eea;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .footer-tools {
+                bottom: 10px;
+                right: 10px;
+                gap: 5px;
+            }
+            .footer-tool {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en" selected>English</option>
+                <option value="zh-CN">简体中文</option>
+                <option value="zh-TW">中文繁體</option>
+            </select>
+        </div>
+        <h1>Free Online Calculator</h1>
+        <div class="mode-toggle">
+            <button class="mode-btn active" onclick="setMode('basic')">Basic</button>
+            <button class="mode-btn" onclick="setMode('scientific')">Scientific</button>
+        </div>
+        <div class="display-container">
+            <div class="history" id="history"></div>
+            <div class="display" id="display">0</div>
+        </div>
+        <div class="buttons" id="buttonsContainer">
+        </div>
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+    </div>
+    <div class="footer-tools">
+        <button class="footer-tool" onclick="toggleFullScreen()" title="Toggle Full Screen">⛶</button>
+    </div>
+
+    <script>
+        let currentDisplay = '0';
+        let shouldResetDisplay = false;
+        let memory = 0;
+        let history = '';
+        let lastWasOperator = false;
+        let isScientificMode = false;
+
+        const displayElement = document.getElementById('display');
+        const historyElement = document.getElementById('history');
+        const buttonsContainer = document.getElementById('buttonsContainer');
+
+        function updateDisplay() {
+            displayElement.textContent = currentDisplay;
+        }
+
+        function updateHistory() {
+            historyElement.textContent = history;
+        }
+
+        function appendNumber(number) {
+            if (shouldResetDisplay) {
+                currentDisplay = '0';
+                shouldResetDisplay = false;
+                history = '';
+                updateHistory();
+            }
+            if (currentDisplay === '0') {
+                currentDisplay = number;
+            } else {
+                currentDisplay += number;
+            }
+            lastWasOperator = false;
+            updateDisplay();
+        }
+
+        function appendOperator(operator) {
+            shouldResetDisplay = false;
+            lastWasOperator = true;
+            const lastChar = currentDisplay.slice(-1);
+            if (['+', '-', '*', '/'].includes(lastChar)) {
+                currentDisplay = currentDisplay.slice(0, -1) + operator;
+            } else {
+                currentDisplay += operator;
+            }
+            updateDisplay();
+        }
+
+        function clearDisplay() {
+            currentDisplay = '0';
+            shouldResetDisplay = false;
+            history = '';
+            lastWasOperator = false;
+            updateDisplay();
+            updateHistory();
+        }
+
+        function deleteLast() {
+            if (shouldResetDisplay) {
+                currentDisplay = '0';
+                shouldResetDisplay = false;
+                history = '';
+                updateHistory();
+                updateDisplay();
+                return;
+            }
+            if (currentDisplay.length === 1 || (currentDisplay.length === 2 && currentDisplay.startsWith('-'))) {
+                currentDisplay = '0';
+            } else {
+                currentDisplay = currentDisplay.slice(0, -1);
+            }
+            updateDisplay();
+        }
+
+        function calculate() {
+            try {
+                let expression = currentDisplay;
+                history = currentDisplay + ' =';
+                
+                expression = expression.replace(/×/g, '*').replace(/÷/g, '/');
+                
+                if (expression.includes('xʸ')) {
+                    const parts = expression.split('xʸ');
+                    if (parts.length === 2) {
+                        expression = 'Math.pow(' + parts[0] + ',' + parts[1] + ')';
+                    }
+                }
+                
+                expression = expression.replace(/sin\(/g, 'Math.sin(')
+                    .replace(/cos\(/g, 'Math.cos(')
+                    .replace(/tan\(/g, 'Math.tan(')
+                    .replace(/log\(/g, 'Math.log10(')
+                    .replace(/ln\(/g, 'Math.log(')
+                    .replace(/√\(/g, 'Math.sqrt(')
+                    .replace(/π/g, 'Math.PI')
+                    .replace(/e/g, 'Math.E')
+                    .replace(/²/g, '**2')
+                    .replace(/%/g, '/100');
+                
+                if (expression.includes('!')) {
+                    expression = processFactorial(expression);
+                }
+                
+                const result = eval(expression);
+                
+                if (!isFinite(result) || isNaN(result)) {
+                    currentDisplay = 'Error';
+                } else {
+                    currentDisplay = parseFloat(result.toFixed(10)).toString();
+                }
+                shouldResetDisplay = true;
+            } catch (error) {
+                currentDisplay = 'Error';
+                shouldResetDisplay = true;
+            }
+            updateDisplay();
+            updateHistory();
+        }
+
+        function processFactorial(expr) {
+            const factorialRegex = /(\d+)!/g;
+            let match;
+            while ((match = factorialRegex.exec(expr)) !== null) {
+                const num = parseInt(match[1]);
+                let result = 1;
+                for (let i = 2; i <= num; i++) {
+                    result *= i;
+                }
+                expr = expr.replace(match[0], result);
+            }
+            return expr;
+        }
+
+        function square() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = currentDisplay + '²';
+                shouldResetDisplay = true;
+            } else {
+                currentDisplay += '²';
+            }
+            updateDisplay();
+        }
+
+        function squareRoot() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = '√(' + currentDisplay + ')';
+                shouldResetDisplay = true;
+            } else {
+                currentDisplay += '√(';
+            }
+            lastWasOperator = true;
+            updateDisplay();
+        }
+
+        function percentage() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = currentDisplay + '%';
+                shouldResetDisplay = true;
+            } else {
+                currentDisplay += '%';
+            }
+            updateDisplay();
+        }
+
+        function negate() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = currentDisplay.startsWith('-') 
+                    ? currentDisplay.slice(1) 
+                    : '-' + currentDisplay;
+            }
+            updateDisplay();
+        }
+
+        function sin() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = 'sin(' + currentDisplay + ')';
+                shouldResetDisplay = true;
+            } else {
+                currentDisplay += 'sin(';
+            }
+            lastWasOperator = true;
+            updateDisplay();
+        }
+
+        function cos() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = 'cos(' + currentDisplay + ')';
+                shouldResetDisplay = true;
+            } else {
+                currentDisplay += 'cos(';
+            }
+            lastWasOperator = true;
+            updateDisplay();
+        }
+
+        function tan() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = 'tan(' + currentDisplay + ')';
+                shouldResetDisplay = true;
+            } else {
+                currentDisplay += 'tan(';
+            }
+            lastWasOperator = true;
+            updateDisplay();
+        }
+
+        function log() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = 'log(' + currentDisplay + ')';
+                shouldResetDisplay = true;
+            } else {
+                currentDisplay += 'log(';
+            }
+            lastWasOperator = true;
+            updateDisplay();
+        }
+
+        function ln() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = 'ln(' + currentDisplay + ')';
+                shouldResetDisplay = true;
+            } else {
+                currentDisplay += 'ln(';
+            }
+            lastWasOperator = true;
+            updateDisplay();
+        }
+
+        function factorial() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = currentDisplay + '!';
+                shouldResetDisplay = true;
+            } else {
+                currentDisplay += '!';
+            }
+            lastWasOperator = true;
+            updateDisplay();
+        }
+
+        function power() {
+            if (!currentDisplay.match(/[+\-*/²%]$/)) {
+                currentDisplay = currentDisplay + 'xʸ';
+                lastWasOperator = true;
+            } else {
+                currentDisplay += 'xʸ';
+                lastWasOperator = true;
+            }
+            updateDisplay();
+        }
+
+        function pi() {
+            if (!currentDisplay.match(/[+\-*/²%]$/) && currentDisplay !== '0') {
+                currentDisplay += '*π';
+            } else {
+                currentDisplay += 'π';
+            }
+            shouldResetDisplay = true;
+            updateDisplay();
+        }
+
+        function e() {
+            if (!currentDisplay.match(/[+\-*/²%]$/) && currentDisplay !== '0') {
+                currentDisplay += '*e';
+            } else {
+                currentDisplay += 'e';
+            }
+            shouldResetDisplay = true;
+            updateDisplay();
+        }
+
+        function memoryClear() {
+            memory = 0;
+            history = 'MC';
+            updateHistory();
+        }
+
+        function memoryRead() {
+            currentDisplay = memory.toString();
+            history = 'MR';
+            shouldResetDisplay = true;
+            updateDisplay();
+            updateHistory();
+        }
+
+        function memoryAdd() {
+            memory += parseFloat(currentDisplay);
+            history = 'M+';
+            updateHistory();
+        }
+
+        function memorySubtract() {
+            memory -= parseFloat(currentDisplay);
+            history = 'M-';
+            updateHistory();
+        }
+
+        function setMode(mode) {
+            isScientificMode = mode === 'scientific';
+            
+            const basicBtn = document.querySelector('.mode-btn:nth-child(1)');
+            const sciBtn = document.querySelector('.mode-btn:nth-child(2)');
+            
+            if (isScientificMode) {
+                basicBtn.classList.remove('active');
+                sciBtn.classList.add('active');
+                buttonsContainer.classList.add('scientific');
+                renderScientificButtons();
+            } else {
+                basicBtn.classList.add('active');
+                sciBtn.classList.remove('active');
+                buttonsContainer.classList.remove('scientific');
+                renderBasicButtons();
+            }
+        }
+
+        function renderBasicButtons() {
+            buttonsContainer.innerHTML = `
+                <button class="btn-clear" onclick="clearDisplay()">C</button>
+                <button class="btn-delete" onclick="deleteLast()">⌫</button>
+                <button class="btn-operator" onclick="appendOperator('/')">÷</button>
+                <button class="btn-operator" onclick="appendOperator('*')">×</button>
+                <button class="btn-operator" onclick="appendOperator('-')">−</button>
+                <button class="btn-operator" onclick="appendOperator('+')">+</button>
+                
+                <button class="btn-number" onclick="appendNumber('7')">7</button>
+                <button class="btn-number" onclick="appendNumber('8')">8</button>
+                <button class="btn-number" onclick="appendNumber('9')">9</button>
+                <button class="btn-number" onclick="appendNumber('4')">4</button>
+                <button class="btn-number" onclick="appendNumber('5')">5</button>
+                <button class="btn-number" onclick="appendNumber('6')">6</button>
+                
+                <button class="btn-number" onclick="appendNumber('1')">1</button>
+                <button class="btn-number" onclick="appendNumber('2')">2</button>
+                <button class="btn-number" onclick="appendNumber('3')">3</button>
+                <button class="btn-number" onclick="appendNumber('0')" style="grid-column: span 2; width: 100%">0</button>
+                <button class="btn-number" onclick="appendNumber('.')">.</button>
+                <button class="btn-equal" onclick="calculate()">=</button>
+            `;
+        }
+
+        function renderScientificButtons() {
+            buttonsContainer.innerHTML = `
+                <button class="btn-memory" onclick="memoryClear()">MC</button>
+                <button class="btn-memory" onclick="memoryRead()">MR</button>
+                <button class="btn-memory" onclick="memoryAdd()">M+</button>
+                <button class="btn-memory" onclick="memorySubtract()">M-</button>
+                <button class="btn-clear" onclick="clearDisplay()">C</button>
+                
+                <button class="btn-sci" onclick="square()">x²</button>
+                <button class="btn-sci" onclick="squareRoot()">√</button>
+                <button class="btn-sci" onclick="percentage()">%</button>
+                <button class="btn-delete" onclick="deleteLast()">⌫</button>
+                <button class="btn-operator" onclick="appendOperator('/')">÷</button>
+                
+                <button class="btn-sci" onclick="sin()">sin</button>
+                <button class="btn-number" onclick="appendNumber('7')">7</button>
+                <button class="btn-number" onclick="appendNumber('8')">8</button>
+                <button class="btn-number" onclick="appendNumber('9')">9</button>
+                <button class="btn-operator" onclick="appendOperator('*')">×</button>
+                
+                <button class="btn-sci" onclick="cos()">cos</button>
+                <button class="btn-number" onclick="appendNumber('4')">4</button>
+                <button class="btn-number" onclick="appendNumber('5')">5</button>
+                <button class="btn-number" onclick="appendNumber('6')">6</button>
+                <button class="btn-operator" onclick="appendOperator('-')">−</button>
+                
+                <button class="btn-sci" onclick="tan()">tan</button>
+                <button class="btn-number" onclick="appendNumber('1')">1</button>
+                <button class="btn-number" onclick="appendNumber('2')">2</button>
+                <button class="btn-number" onclick="appendNumber('3')">3</button>
+                <button class="btn-operator" onclick="appendOperator('+')">+</button>
+                
+                <button class="btn-sci" onclick="log()">log</button>
+                <button class="btn-sci" onclick="ln()">ln</button>
+                <button class="btn-number" onclick="appendNumber('0')" style="grid-column: span 2; width: 100%">0</button>
+                <button class="btn-number" onclick="appendNumber('.')">.</button>
+                <button class="btn-equal" onclick="calculate()">=</button>
+                
+                <button class="btn-sci" onclick="factorial()">n!</button>
+                <button class="btn-sci" onclick="power()">xʸ</button>
+                <button class="btn-sci" onclick="pi()">π</button>
+                <button class="btn-sci" onclick="e()">e</button>
+                <button class="btn-sci" onclick="negate()">±</button>
+            `;
+        }
+
+        setMode('basic');
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key >= '0' && e.key <= '9') {
+                appendNumber(e.key);
+            } else if (e.key === '.') {
+                appendNumber('.');
+            } else if (e.key === '+' || e.key === '-') {
+                appendOperator(e.key);
+            } else if (e.key === '*') {
+                appendOperator('*');
+            } else if (e.key === '/') {
+                e.preventDefault();
+                appendOperator('/');
+            } else if (e.key === 'Enter' || e.key === '=') {
+                e.preventDefault();
+                calculate();
+            } else if (e.key === 'Backspace') {
+                deleteLast();
+            } else if (e.key === 'Escape') {
+                clearDisplay();
+            }
+        });
+        
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        function bookmarkPage() {
+            const title = document.title;
+            const url = window.location.href;
+            
+            if (navigator.userAgent.indexOf('iPhone') !== -1 || navigator.userAgent.indexOf('iPad') !== -1) {
+                alert('Press the Share button and select "Add to Home Screen"');
+            } else if (navigator.userAgent.indexOf('Android') !== -1) {
+                alert('Press the menu button and select "Add to Home Screen"');
+            } else if (window.sidebar && window.sidebar.addPanel) {
+                window.sidebar.addPanel(title, url, '');
+            } else if (window.external && 'AddFavorite' in window.external) {
+                window.external.AddFavorite(url, title);
+            } else {
+                alert('Press Ctrl+D to bookmark this page');
+            }
+        }
+        
+        const translations = {
+            en: {
+                title: 'Free Online Calculator',
+                back: '← Back to Home',
+                basic: 'Basic',
+                scientific: 'Scientific',
+                clear: 'C',
+                delete: '⌫',
+                divide: '÷',
+                multiply: '×',
+                minus: '−',
+                plus: '+',
+                equal: '=',
+                sin: 'sin',
+                cos: 'cos',
+                tan: 'tan',
+                log: 'log',
+                ln: 'ln',
+                sqrt: '√',
+                percent: '%',
+                factorial: 'n!',
+                power: 'xʸ',
+                pi: 'π',
+                negate: '±'
+            },
+            'zh-CN': {
+                title: '免费在线计算器',
+                back: '← 返回首页',
+                basic: '基本',
+                scientific: '科学',
+                clear: '清除',
+                delete: '删除',
+                divide: '÷',
+                multiply: '×',
+                minus: '−',
+                plus: '+',
+                equal: '=',
+                sin: '正弦',
+                cos: '余弦',
+                tan: '正切',
+                log: '对数',
+                ln: '自然对数',
+                sqrt: '平方根',
+                percent: '百分比',
+                factorial: '阶乘',
+                power: '次方',
+                pi: '圆周率',
+                negate: '正负'
+            },
+            'zh-TW': {
+                title: '免費線上計算器',
+                back: '← 返回首頁',
+                basic: '基本',
+                scientific: '科學',
+                clear: '清除',
+                delete: '刪除',
+                divide: '÷',
+                multiply: '×',
+                minus: '−',
+                plus: '+',
+                equal: '=',
+                sin: '正弦',
+                cos: '餘弦',
+                tan: '正切',
+                log: '對數',
+                ln: '自然對數',
+                sqrt: '平方根',
+                percent: '百分比',
+                factorial: '階乘',
+                power: '次方',
+                pi: '圓周率',
+                negate: '正負'
+            }
+        };
+        
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.title = t.title;
+            document.querySelector('h1').textContent = t.title;
+            document.querySelector('.back-link a').textContent = t.back;
+            
+            const modeBtns = document.querySelectorAll('.mode-btn');
+            modeBtns[0].textContent = t.basic;
+            modeBtns[1].textContent = t.scientific;
+            
+            const basicBtns = document.querySelectorAll('.btn-clear, .btn-delete, .btn-operator, .btn-number, .btn-equal');
+            basicBtns[0].textContent = t.clear;
+            basicBtns[1].textContent = t.delete;
+            basicBtns[2].textContent = t.divide;
+            basicBtns[3].textContent = t.multiply;
+            basicBtns[4].textContent = t.minus;
+            basicBtns[5].textContent = t.plus;
+            basicBtns[6].textContent = t.equal;
+            
+            localStorage.setItem('language', lang);
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'en';
+        document.getElementById('languageSelect').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
+</body>
+</html>
