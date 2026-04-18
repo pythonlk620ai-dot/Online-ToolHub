@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9279932937238095"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Interval Calculator | Online Tools Hub</title>
+    <meta name="description" content="Calculate the time difference between two dates and times. Add years, months, days, hours, minutes, and seconds to a date.">
+    <meta name="keywords" content="time interval calculator, date difference, time difference, date calculator, add time to date">
+    <meta name="author" content="Online Tools Hub">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 110px 20px 40px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .input-section {
+            margin-bottom: 40px;
+        }
+        
+        .input-section h2 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .date-time-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group label {
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        .input-group input {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .input-group input[type="date"] {
+            color: #333;
+        }
+        
+        .input-group input[type="time"] {
+            color: #333;
+        }
+        
+        .time-inputs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .time-inputs .input-group input {
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .result-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+        }
+        
+        .result-section h3 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 1.3em;
+        }
+        
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        .result-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .result-item .value {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .result-item .label {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .result-item.large .value {
+            font-size: 3em;
+            color: #764ba2;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .tab {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        .tab:hover {
+            color: #667eea;
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2em;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        
+        .back-link a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .navbar .logo {
+            color: white;
+            font-size: 1.5em;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .navbar .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .navbar .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        .navbar .nav-links a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .calculator-card {
+                padding: 25px;
+            }
+            
+            .time-inputs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .btn {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Online Tools Hub</a>
+            <div class="nav-links">
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About</a>
+                <a href="help.html">Help</a>
+            </div>
+        </nav>
+        
+        <header>
+            <h1>⏰ Time Interval Calculator</h1>
+            <p class="subtitle">Calculate time differences or add time to dates</p>
+        </header>
+        
+        <div class="calculator-card">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('difference')">Time Difference</button>
+                <button class="tab" onclick="showTab('addtime')">Add Time</button>
+            </div>
+            
+            <!-- Time Difference Tab -->
+            <div id="difference-tab" class="tab-content">
+                <div class="input-section">
+                    <h2>Start Date & Time</h2>
+                    <div class="date-time-group">
+                        <div class="input-group">
+                            <label for="startDate">Date</label>
+                            <input type="date" id="startDate" value="">
+                        </div>
+                        <div class="input-group">
+                            <label for="startTime">Time</label>
+                            <input type="time" id="startTime" value="00:00">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-section">
+                    <h2>End Date & Time</h2>
+                    <div class="date-time-group">
+                        <div class="input-group">
+                            <label for="endDate">Date</label>
+                            <input type="date" id="endDate" value="">
+                        </div>
+                        <div class="input-group">
+                            <label for="endTime">Time</label>
+                            <input type="time" id="endTime" value="23:59">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="calculateDifference()">Calculate Difference</button>
+                <button class="btn btn-secondary" onclick="clearFields('difference')">Clear</button>
+            </div>
+            
+            <!-- Add Time Tab -->
+            <div id="addtime-tab" class="tab-content" style="display: none;">
+                <div class="input-section">
+                    <h2>Start Date & Time</h2>
+                    <div class="date-time-group">
+                        <div class="input-group">
+                            <label for="addStartDate">Date</label>
+                            <input type="date" id="addStartDate" value="">
+                        </div>
+                        <div class="input-group">
+                            <label for="addStartTime">Time</label>
+                            <input type="time" id="addStartTime" value="00:00">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-section">
+                    <h2>Add Time Interval</h2>
+                    <div class="time-inputs">
+                        <div class="input-group">
+                            <label for="addYears">Years</label>
+                            <input type="number" id="addYears" value="0" min="0" max="999">
+                        </div>
+                        <div class="input-group">
+                            <label for="addMonths">Months</label>
+                            <input type="number" id="addMonths" value="0" min="0" max="11">
+                        </div>
+                        <div class="input-group">
+                            <label for="addDays">Days</label>
+                            <input type="number" id="addDays" value="0" min="0" max="365">
+                        </div>
+                        <div class="input-group">
+                            <label for="addHours">Hours</label>
+                            <input type="number" id="addHours" value="0" min="0" max="23">
+                        </div>
+                        <div class="input-group">
+                            <label for="addMinutes">Minutes</label>
+                            <input type="number" id="addMinutes" value="0" min="0" max="59">
+                        </div>
+                        <div class="input-group">
+                            <label for="addSeconds">Seconds</label>
+                            <input type="number" id="addSeconds" value="0" min="0" max="59">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="calculateAddTime()">Calculate Result</button>
+                <button class="btn btn-secondary" onclick="clearFields('addtime')">Clear</button>
+            </div>
+            
+            <!-- Result Section -->
+            <div id="result-section" class="result-section" style="display: none;">
+                <h3 id="resultTitle">Calculation Result</h3>
+                <div id="resultContent">
+                    <div class="result-grid">
+                        <div class="result-item large">
+                            <div class="value" id="resultTotal"></div>
+                            <div class="label">Total Time</div>
+                        </div>
+                    </div>
+                    <div class="result-grid" id="resultDetails"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Online Tools Hub. All tools are free to use.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Set default dates to today and tomorrow
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toISOString().split('T')[0];
+            const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+            
+            document.getElementById('startDate').value = today;
+            document.getElementById('endDate').value = tomorrow;
+            document.getElementById('addStartDate').value = today;
+        });
+        
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.style.display = 'none');
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName + '-tab').style.display = 'block';
+            
+            document.getElementById('result-section').style.display = 'none';
+        }
+        
+        function calculateDifference() {
+            const startDate = document.getElementById('startDate').value;
+            const startTime = document.getElementById('startTime').value || '00:00';
+            const endDate = document.getElementById('endDate').value;
+            const endTime = document.getElementById('endTime').value || '00:00';
+            
+            if (!startDate || !endDate) {
+                alert('Please select both start and end dates');
+                return;
+            }
+            
+            const start = new Date(startDate + 'T' + startTime);
+            const end = new Date(endDate + 'T' + endTime);
+            
+            if (start > end) {
+                alert('Start date/time must be before end date/time');
+                return;
+            }
+            
+            const diff = end - start;
+            
+            // Calculate years, months, days, hours, minutes, seconds
+            const totalSeconds = Math.floor(diff / 1000);
+            const totalMinutes = Math.floor(totalSeconds / 60);
+            const totalHours = Math.floor(totalMinutes / 60);
+            const totalDays = Math.floor(totalHours / 24);
+            
+            // Approximate years and months (30.4375 days per month)
+            const years = Math.floor(totalDays / 365);
+            const remainingDaysAfterYears = totalDays % 365;
+            const months = Math.floor(remainingDaysAfterYears / 30.4375);
+            const days = Math.floor(remainingDaysAfterYears % 30.4375);
+            const hours = totalHours % 24;
+            const minutes = totalMinutes % 60;
+            const seconds = totalSeconds % 60;
+            
+            displayResult({
+                years, months, days, hours, minutes, seconds,
+                totalDays, totalHours, totalMinutes, totalSeconds,
+                type: 'difference'
+            });
+        }
+        
+        function calculateAddTime() {
+            const startDate = document.getElementById('addStartDate').value;
+            const startTime = document.getElementById('addStartTime').value || '00:00';
+            
+            if (!startDate) {
+                alert('Please select a start date');
+                return;
+            }
+            
+            const date = new Date(startDate + 'T' + startTime);
+            
+            const years = parseInt(document.getElementById('addYears').value) || 0;
+            const months = parseInt(document.getElementById('addMonths').value) || 0;
+            const days = parseInt(document.getElementById('addDays').value) || 0;
+            const hours = parseInt(document.getElementById('addHours').value) || 0;
+            const minutes = parseInt(document.getElementById('addMinutes').value) || 0;
+            const seconds = parseInt(document.getElementById('addSeconds').value) || 0;
+            
+            // Add the time
+            date.setFullYear(date.getFullYear() + years);
+            date.setMonth(date.getMonth() + months);
+            date.setDate(date.getDate() + days);
+            date.setHours(date.getHours() + hours);
+            date.setMinutes(date.getMinutes() + minutes);
+            date.setSeconds(date.getSeconds() + seconds);
+            
+            displayResult({
+                resultDate: date,
+                addedYears: years,
+                addedMonths: months,
+                addedDays: days,
+                addedHours: hours,
+                addedMinutes: minutes,
+                addedSeconds: seconds,
+                type: 'addtime'
+            });
+        }
+        
+        function displayResult(data) {
+            const resultSection = document.getElementById('result-section');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultContent = document.getElementById('resultContent');
+            
+            if (data.type === 'difference') {
+                resultTitle.textContent = 'Time Difference Result';
+                
+                const totalStr = `${data.years > 0 ? data.years + 'y ' : ''}${data.months > 0 ? data.months + 'm ' : ''}${data.days > 0 ? data.days + 'd ' : ''}${data.hours > 0 ? data.hours + 'h ' : ''}${data.minutes > 0 ? data.minutes + 'm ' : ''}${data.seconds > 0 ? data.seconds + 's' : ''}` || '0 seconds';
+                
+                resultContent.innerHTML = `
+                    <div class="result-grid">
+                        <div class="result-item large">
+                            <div class="value">${totalStr}</div>
+                            <div class="label">Total Time Difference</div>
+                        </div>
+                    </div>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="value">${data.years}</div>
+                            <div class="label">Years</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">${data.months}</div>
+                            <div class="label">Months</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">${data.days}</div>
+                            <div class="label">Days</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">${data.hours}</div>
+                            <div class="label">Hours</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">${data.minutes}</div>
+                            <div class="label">Minutes</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">${data.seconds}</div>
+                            <div class="label">Seconds</div>
+                        </div>
+                    </div>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="value">${data.totalDays}</div>
+                            <div class="label">Total Days</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">${data.totalHours}</div>
+                            <div class="label">Total Hours</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">${data.totalMinutes}</div>
+                            <div class="label">Total Minutes</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">${data.totalSeconds.toLocaleString()}</div>
+                            <div class="label">Total Seconds</div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                resultTitle.textContent = 'New Date & Time';
+                
+                const dateStr = data.resultDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                const timeStr = data.resultDate.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                
+                resultContent.innerHTML = `
+                    <div class="result-grid">
+                        <div class="result-item large">
+                            <div class="value">${dateStr}</div>
+                            <div class="label">Date</div>
+                        </div>
+                        <div class="result-item large">
+                            <div class="value">${timeStr}</div>
+                            <div class="label">Time</div>
+                        </div>
+                    </div>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <div class="value">+${data.addedYears}</div>
+                            <div class="label">Years Added</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">+${data.addedMonths}</div>
+                            <div class="label">Months Added</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">+${data.addedDays}</div>
+                            <div class="label">Days Added</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">+${data.addedHours}</div>
+                            <div class="label">Hours Added</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">+${data.addedMinutes}</div>
+                            <div class="label">Minutes Added</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="value">+${data.addedSeconds}</div>
+                            <div class="label">Seconds Added</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            resultSection.style.display = 'block';
+        }
+        
+        function clearFields(tabName) {
+            if (tabName === 'difference') {
+                document.getElementById('startDate').value = new Date().toISOString().split('T')[0];
+                document.getElementById('startTime').value = '00:00';
+                const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+                document.getElementById('endDate').value = tomorrow;
+                document.getElementById('endTime').value = '23:59';
+            } else {
+                document.getElementById('addStartDate').value = new Date().toISOString().split('T')[0];
+                document.getElementById('addStartTime').value = '00:00';
+                document.getElementById('addYears').value = '0';
+                document.getElementById('addMonths').value = '0';
+                document.getElementById('addDays').value = '0';
+                document.getElementById('addHours').value = '0';
+                document.getElementById('addMinutes').value = '0';
+                document.getElementById('addSeconds').value = '0';
+            }
+            document.getElementById('result-section').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
